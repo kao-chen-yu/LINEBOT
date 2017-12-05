@@ -35,16 +35,7 @@ bot.on('message', function(event) {
 	else{
 		var options = {
 			sessionId: uuid(),
-			contexts:[
-			  {
-				"name": "find_singer-followup",
-				"parameters": {
-				  "singer": singer,
-				  "singer.original": singer
-				}
-				
-			  }
-			]
+			contexts: contexts
 		};		
 	}
 	console.log('singers' + singer);
