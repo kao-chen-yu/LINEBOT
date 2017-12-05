@@ -62,7 +62,8 @@ bot.on('message', function(event) {
 	request.on('response',function(response){
 		
 			var param = response.result.contexts[0].parameters;
-			console.log(JSON.stringify(param));
+			var context_test = response.result;
+			console.log(JSON.stringify(context_test));
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
 			
