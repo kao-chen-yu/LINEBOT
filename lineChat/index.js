@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = '[{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}]';
+var contexts = [{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
   if (event.message.type = 'text') {
@@ -46,7 +46,7 @@ bot.on('message', function(event) {
 	
 	request.on('response',function(response){
 		
-			var param = response.result.contexts[0].parameters;
+			
 			var context_test = response.result.contexts;
 			console.log(JSON.stringify(context_test));
 			//get dialogflow's sentence
@@ -57,6 +57,7 @@ bot.on('message', function(event) {
 				if(response.result.metadata.intentName =='listen_song')
 					singer=param['singer.original'];
 				else{				
+				var param = response.result.contexts[0].parameters;
 				console.log('find_singer - custom' +singer);
 				}
 				var path='./song_list/'+singer+'.txt';
