@@ -23,7 +23,7 @@ bot.on('message', function(event) {
     var msg = event.message.text;
 	var sessionid= uuid();
 	var speech='';
-	// put context
+	
 	if(singer == 'test'){
 		var options = {
 			sessionId: uuid(),
@@ -122,19 +122,6 @@ bot.on('message', function(event) {
   }
 });
 
-var checkexist = function (fname,song){
-	
-	var path='./song_list/'+fname+'.txt';
-	fs.readFile(path, function (err, data) {
-    if (err) 
-		console.log(err);
- 
-    var str=data.toString();
-	console.log(str.includes(song));
-	check = str.includes(song);
-});
-	
-}
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
