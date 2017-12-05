@@ -62,6 +62,7 @@ bot.on('message', function(event) {
 	request.on('response',function(response){
 		
 			var param = response.result.contexts[0].parameters;
+			console.log(JSON.stringify(param));
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
 			
@@ -71,8 +72,6 @@ bot.on('message', function(event) {
 					singer=param['singer.original'];
 				console.log('find_singer - custom' +singer);
 				
-				//test context 
-				console.log(String(param));
 				var path='./song_list/'+singer+'.txt';
 					fs.readFile(path, function (err, data) {
 						if (err){ 
