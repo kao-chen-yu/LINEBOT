@@ -115,7 +115,7 @@ bot.on('message', function(event) {
 	// error 
 	console.log('error');
 	});	
-	)
+	);
 	request.on('error',function(error){
 		console.log(error);
 	});
