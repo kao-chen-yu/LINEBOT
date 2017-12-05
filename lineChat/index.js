@@ -17,6 +17,7 @@ var bot = linebot({
 
 var singer='test';
 var check = false;
+var test ='test sent';
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
   if (event.message.type = 'text') {
@@ -54,7 +55,7 @@ bot.on('message', function(event) {
 		};		
 	}
 	console.log('singers' + singer);
-	var test ='test sent';
+	
 	
 	// query information 
 	var request = app1.textRequest(msg,options);
