@@ -71,6 +71,9 @@ bot.on('message', function(event) {
 			function step1(){
 				console.log('step start');
 				test = 'step info~';
+			},
+			function step2(){
+				console.log('2');
 			}
 			);
 			//find_singer or listen_song
