@@ -115,6 +115,8 @@ bot.on('message', function(event) {
 function putContext(param){
 	console.log('put context');
 	singer = param['singer.original'];
+	contexts[0].parameters.singer = singer;
+	contexts[0].parameters['singer.original'] = singer;
 }
 const app = express();
 const linebotParser = bot.parser();
