@@ -6,7 +6,7 @@ const uuid = require('uuid/v1');
 var apiai = require('apiai');
 var app1 = apiai('df450cef4ea7467a8543a9c0ee587e2e');
 var fs=require('fs');
-
+var Step = require('step');
 
 var bot = linebot({
 	channelId : '1547763729',
@@ -65,7 +65,13 @@ bot.on('message', function(event) {
 			console.log(JSON.stringify(context_test));
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
+			var test ='test sent';
 			
+			Step(
+				console.log('step start');
+				test = 'step info~';
+				
+				);
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
@@ -118,6 +124,7 @@ bot.on('message', function(event) {
 	});
 	request.end();
 	console.log('bot1 end');
+	console.log(test);
   }
 });
 
