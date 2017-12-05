@@ -68,29 +68,13 @@ bot.on('message', function(event) {
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
 			
-			Step(
-			function step1(){
-				console.log('step start');
-				test = 'step info~';
-				return '223';
-			},
-			function step2(){
-				console.log('2');
-				console.log(arguments);
-				return '323';
-			},
-			function step3(){
-				console.log('3');
-				console.log(arguments);
-			}
-			);
-			
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
 					singer=param['singer.original'];
+				else{				
 				console.log('find_singer - custom' +singer);
-				
+				}
 				var path='./song_list/'+singer+'.txt';
 					fs.readFile(path, function (err, data) {
 						if (err){ 
@@ -124,7 +108,9 @@ bot.on('message', function(event) {
 				console.log(response);
 				if(response.result.metadata.intentName=='find_singer'){
 				console.log('find_singer!');
-				singer=param['singer.original'];}
+				Step(
+				putContext(param);
+				);}
 
 				}).catch(function(error) {
 				// error 
@@ -141,6 +127,10 @@ bot.on('message', function(event) {
   }
 });
 
+function putContext(param){
+	console.log('put context');
+	singer = param['singer.original'];
+}
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
