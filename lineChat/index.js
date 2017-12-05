@@ -18,6 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
+var contexts = '[{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}]';
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
   if (event.message.type = 'text') {
@@ -28,15 +29,7 @@ bot.on('message', function(event) {
 	if(singer == 'test'){
 		var options = {
 			sessionId: uuid(),
-			contexts:[
-			  {
-				"name": "find_singer-followup",
-				"parameters": {
-					"singer": "",
-					"singer.original": ""
-				}		
-			  }
-			]	
+			contexts: contexts
 		};
 	}
 	else{
