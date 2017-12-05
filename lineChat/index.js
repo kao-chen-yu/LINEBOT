@@ -109,8 +109,9 @@ bot.on('message', function(event) {
 				if(response.result.metadata.intentName=='find_singer'){
 				console.log('find_singer!');
 				Step(
-				putContext(param);
-				);}
+				putContext(param)
+				);
+				}
 
 				}).catch(function(error) {
 				// error 
