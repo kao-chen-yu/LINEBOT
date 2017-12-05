@@ -102,7 +102,7 @@ bot.on('message', function(event) {
 				console.log('error');
 				});
 			}
-	});
+	}),
 	
 	//line bot replay
 	event.reply(speech).then(function(data) {
