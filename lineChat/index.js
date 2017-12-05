@@ -54,7 +54,7 @@ bot.on('message', function(event) {
 		};		
 	}
 	console.log('singers' + singer);
-	
+	var test ='test sent';
 	// query information 
 	var request = app1.textRequest(msg,options);
 	
@@ -65,7 +65,7 @@ bot.on('message', function(event) {
 			console.log(JSON.stringify(context_test));
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
-			var test ='test sent';
+			
 			
 			Step(
 			function step1(){
