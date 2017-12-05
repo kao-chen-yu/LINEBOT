@@ -6,7 +6,7 @@ const uuid = require('uuid/v1');
 var apiai = require('apiai');
 var app1 = apiai('df450cef4ea7467a8543a9c0ee587e2e');
 var fs=require('fs');
-
+var Step = require('step');
 
 var bot = linebot({
 	channelId : '1547763729',
@@ -58,7 +58,7 @@ bot.on('message', function(event) {
 	
 	// query information 
 	var request = app1.textRequest(msg,options);
-	
+	Step(
 	request.on('response',function(response){
 		
 			var param = response.result.contexts[0].parameters;
@@ -85,18 +85,7 @@ bot.on('message', function(event) {
 						{
 							speech = '歌手沒有唱此首歌';	
 						}
-							//line bot replay
-							event.reply(speech).then(function(data) {
-							// success 
-								console.log(response);
-								if(response.result.metadata.intentName=='find_singer'){
-								console.log('find_singer!');
-								singer=param['singer.original'];}
-
-							}).catch(function(error) {
-							// error 
-							console.log('error');
-							});			
+	
 					});			
 			
 			}
@@ -114,9 +103,24 @@ bot.on('message', function(event) {
 				});
 			}
 	});
+	
+	//line bot replay
+	event.reply(speech).then(function(data) {
+	// success 
+	if(response.result.metadata.intentName=='find_singer'){
+	console.log('find_singer!');
+	singer=param['singer.original'];}
+
+	}).catch(function(error) {
+	// error 
+	console.log('error');
+	});	
+	)
 	request.on('error',function(error){
 		console.log(error);
 	});
+	
+	
 	request.end();
 	console.log('bot1 end');
   }
