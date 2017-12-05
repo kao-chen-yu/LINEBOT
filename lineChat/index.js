@@ -68,10 +68,11 @@ bot.on('message', function(event) {
 			var test ='test sent';
 			
 			Step(
+			function step1(){
 				console.log('step start');
 				test = 'step info~';
-				
-				);
+			}
+			);
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
