@@ -77,6 +77,11 @@ bot.on('message', function(event) {
 			function step2(){
 				console.log('2');
 				console.log(arguments);
+				return '323';
+			},
+			function step3(){
+				console.log('3');
+				console.log(arguments);
 			}
 			);
 			
