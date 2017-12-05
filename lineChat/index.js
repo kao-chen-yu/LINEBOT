@@ -72,9 +72,11 @@ bot.on('message', function(event) {
 			function step1(){
 				console.log('step start');
 				test = 'step info~';
+				return '223';
 			},
 			function step2(){
 				console.log('2');
+				console.log(arguments);
 			}
 			);
 			
