@@ -55,15 +55,7 @@ bot.on('message', function(event) {
 	}
 	console.log('singers' + singer);
 	var test ='test sent';
-	Step(
-			function step1(){
-				console.log('step start');
-				test = 'step info~';
-			},
-			function step2(){
-				console.log('2');
-			}
-			);
+	
 	// query information 
 	var request = app1.textRequest(msg,options);
 	
@@ -75,7 +67,15 @@ bot.on('message', function(event) {
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
 			
-			
+			Step(
+			function step1(){
+				console.log('step start');
+				test = 'step info~';
+			},
+			function step2(){
+				console.log('2');
+			}
+			);
 			
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
