@@ -149,8 +149,17 @@ function putContext(user,param){
 
 function clearContext(){
 	console.log('clear context');
-	contexts.contexts[0].parameters['singer'] = "";
-	contexts.contexts[0].parameters['singer.original'] = "";
+	
+	for(var i=0;i<response.result.contexts.length;i++){
+		if(response.result.contexts[i].name == 'find_singer-followup')
+			var find_singer-followup = i;
+		else if (response.result.contexts[i].name == 'recent_song')
+			var recent_song = i;
+	}
+	
+	contexts.contexts[recent_song].parameters = contexts.contexts[find_singer-followup].parameters;
+	contexts.contexts[find_singer-followup].parameters['singer'] = "";
+	contexts.contexts[find_singer-followup].parameters['singer.original'] = "";
 }
 
 
