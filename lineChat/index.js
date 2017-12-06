@@ -164,7 +164,7 @@ function clearContext(response){
 		else if (response.result.contexts[i].name == 'recent_song')
 			var recent_song = i;
 	}
-	
+	console.log(contexts.contexts);
 	contexts.contexts[recent_song].parameters['recent_singer'] = contexts.contexts[find_singer_followup].parameters['singer'];
 	contexts.contexts[recent_song].parameters['recent_singer.original'] = contexts.contexts[find_singer_followup].parameters['singer.original'];	
 	contexts.contexts[find_singer_followup].parameters['singer'] = "";
