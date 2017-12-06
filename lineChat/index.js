@@ -91,7 +91,7 @@ bot.on('message', function(event) {
 							event.reply(speech).then(function(data) {
 							// success 
 							Step(
-							clearContext(response)
+							clearContext(param)
 							);													
 							}).catch(function(error) {
 							// error 
@@ -155,14 +155,14 @@ function putContext(user,param){
 	console.log(user_arr[userId]);
 }
 
-function clearContext(response){
+function clearContext(param){
 	console.log('clear context');
 	
 	console.log(contexts.contexts);
-	contexts.contexts[1].parameters['recent_singer'] = contexts.contexts[0].parameters['singer'];
-	contexts.contexts[1].parameters['recent_singer.original'] = contexts.contexts[0].parameters['singer.original'];	
-	contexts.contexts[1].parameters['recent_song'] = contexts.contexts[0].parameters['song'];
-	contexts.contexts[1].parameters['recent_song.original'] = contexts.contexts[0].parameters['song.original'];	
+	contexts.contexts[1].parameters['recent_singer'] = param['singer'];
+	contexts.contexts[1].parameters['recent_singer.original'] = param['singer.original'];	
+	contexts.contexts[1].parameters['recent_song'] = param['song.original'];
+	contexts.contexts[1].parameters['recent_song.original'] = param['song.original'];	
 	contexts.contexts[0].parameters['singer'] = "";
 	contexts.contexts[0].parameters['singer.original'] = "";
 	console.log(contexts.contexts);
