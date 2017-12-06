@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'singer': "",'singer.original': ""}}]};
 var user_arr = [];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
@@ -35,10 +35,8 @@ bot.on('message', function(event) {
 		var userId = event.source.userId; 
 	
 	if(user_arr[userId] != undefined){
-		console.log('user undefined !');
 	contexts.contexts = JSON.parse(user_arr[userId]);
 	}
-	console.log(contexts.contexts);
 		var options = {
 			sessionId: uuid(),
 			contexts: contexts.contexts
@@ -54,8 +52,6 @@ bot.on('message', function(event) {
 	request.on('response',function(response){
 		
 			var context_test = response.result.contexts;
-			console.log('===========================================================');
-			console.log(response);
 						
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
@@ -118,7 +114,6 @@ bot.on('message', function(event) {
 	});
 	request.end();
 	console.log('bot1 end');
-	console.log(test);
   }
 });
 function test123(){
