@@ -36,12 +36,12 @@ bot.on('message', function(event) {
 	
 	if(user_arr[userId] != undefined){
 		console.log('user undefined !');
-	contexts.contexts = user_arr[userId];
+	contexts.contexts = JSON.parse(user_arr[userId]);
 	}
 	console.log(contexts.contexts);
 		var options = {
 			sessionId: uuid(),
-			contexts: JSON.parse(contexts.contexts)
+			contexts: contexts.contexts
 		};
 		
 		console.log('options-----------------------');
