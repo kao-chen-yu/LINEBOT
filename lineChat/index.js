@@ -160,6 +160,7 @@ function clearContext(){
 	contexts.contexts[recent_song].parameters = contexts.contexts[find_singer_followup].parameters;
 	contexts.contexts[find_singer_followup].parameters['singer'] = "";
 	contexts.contexts[find_singer_followup].parameters['singer.original'] = "";
+	console.log(contexts.contexts[recent_song]);
 }
 
 
