@@ -29,7 +29,7 @@ bot.on('message', function(event) {
 	var sessionid= uuid();
 	var speech='';
 	
-	if(user.source.type == 'group')
+	if(event.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
 	else
 		var userId = user.source.userId 
