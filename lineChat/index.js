@@ -45,7 +45,7 @@ bot.on('message', function(event) {
 		};
 		
 		console.log('options-----------------------');
-		console.log(options);
+		console.log(options.contexts);
 	
 	
 	// query information 
