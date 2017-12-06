@@ -19,10 +19,11 @@ var singer='test';
 var check = false;
 var test ='test sent';
 var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}]};
+var user_arr = [];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
   console.log('context-------------------------------------------');
-  console.log(contexts);
+  console.log(contexts.contexts);
   if (event.message.type = 'text') {
     var msg = event.message.text;
 	var sessionid= uuid();
@@ -95,7 +96,7 @@ bot.on('message', function(event) {
 				console.log('find_singer!');
 				console.log(event);
 				Step(				
-				putContext(response.result.contexts[0].parameters),
+				putContext(user,response.result.contexts[0].parameters),
 				test123()
 				);
 				}
@@ -118,12 +119,18 @@ function test123(){
 	console.log('test');
 	
 }
-function putContext(param){
+function putContext(user,param){
 	console.log('put context');
 	console.log(param);
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId 
+	
 	singer = param['singer.original'];
 	contexts.contexts[0].parameters['singer'] = singer;
 	contexts.contexts[0].parameters['singer.original'] = singer;
+	//user_arr[userId] = JSON.stringify(contexts.context);
 }
 
 function clearContext(){
