@@ -30,9 +30,9 @@ bot.on('message', function(event) {
 	var speech='';
 	
 	if(event.source.type == 'group')
-		var userId = user.source.userId + user.source.groupId;
+		var userId = event.source.userId + event.source.groupId;
 	else
-		var userId = user.source.userId 
+		var userId = event.source.userId; 
 	
 	if(user_arr[userId] != undefined){
 	contexts.contexts = user_arr[userId];
@@ -133,7 +133,7 @@ function putContext(user,param){
 	if(user.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
 	else
-		var userId = user.source.userId 
+		var userId = user.source.userId; 
 	
 	singer = param['singer.original'];
 	contexts.contexts[0].parameters['singer'] = singer;
