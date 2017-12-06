@@ -93,7 +93,10 @@ bot.on('message', function(event) {
 				Step(
 				putContext(response.result.contexts[0].parameters),
 				test123()
-				);
+				).catch(function(error) {
+				// error 
+				console.log('error replay');
+				});
 				}
 				event.reply(speech).then(function(data) {
 				// success 
