@@ -58,9 +58,12 @@ bot.on('message', function(event) {
 			console.log(response.result.contexts);
 						
 			//get dialogflow's sentence
-			speech = response.result.fulfillment.speech ;
-			var param = response.result.contexts[0].parameters;
-
+			speech = response.result.fulfillment.speech;
+			
+			for(int i=0;i<response.result.contexts.length;i++){
+			if(response.result.contexts[i].name == 'find_singer-followup')
+			var param = response.result.contexts[i].parameters;
+			}
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
