@@ -39,19 +39,17 @@ bot.on('message', function(event) {
 	contexts.contexts = user_arr[userId];
 	}
 	console.log(contexts.contexts);
-	if(singer == 'test'){
 		var options = {
 			sessionId: uuid(),
 			contexts: contexts.contexts
 		};
-	}
-	else{
+	
 		var options = {
 			sessionId: uuid(),
 			contexts: contexts.contexts
-		};		
-	}
-	//console.log('singers' + contexts.contexts[0]);
+		};	
+		console.log('options-----------------------');
+		console.log(options);
 	
 	
 	// query information 
