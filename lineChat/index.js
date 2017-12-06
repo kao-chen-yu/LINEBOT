@@ -91,7 +91,7 @@ bot.on('message', function(event) {
 							event.reply(speech).then(function(data) {
 							// success 
 							Step(
-							clearContext()
+							clearContext(response)
 							);													
 							}).catch(function(error) {
 							// error 
@@ -155,7 +155,7 @@ function putContext(user,param){
 	console.log(user_arr[userId]);
 }
 
-function clearContext(){
+function clearContext(response){
 	console.log('clear context');
 	
 	for(var i=0;i<response.result.contexts.length;i++){
