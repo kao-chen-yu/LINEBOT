@@ -96,6 +96,7 @@ bot.on('message', function(event) {
 							}).catch(function(error) {
 							// error 
 							console.log('error');
+							console.log(error);
 							});			
 					});			
 			
