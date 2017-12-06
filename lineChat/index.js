@@ -40,7 +40,7 @@ bot.on('message', function(event) {
 			contexts: contexts.contexts
 		};		
 	}
-	console.log('singers' + contexts.contexts.parameters['singer']);
+	console.log('singers' + contexts.contexts[0].parameters['singer']);
 	
 	
 	// query information 
