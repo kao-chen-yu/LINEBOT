@@ -120,7 +120,7 @@ function test123(){
 	
 }
 function putContext(param){
-	console.log('put context');
+	console.log('put context1');
 	console.log(param);
 	singer = param['singer.original'];
 	//singer = param['singer.original'];
