@@ -33,7 +33,7 @@ bot.on('message', function(event) {
 		var userId = event.source.userId + event.source.groupId;
 	else
 		var userId = event.source.userId; 
-	
+	console.log(user_arr[userId]);
 	if(user_arr[userId] != undefined){
 		console.log('user undefined !');
 	contexts.contexts = JSON.parse(user_arr[userId]);
