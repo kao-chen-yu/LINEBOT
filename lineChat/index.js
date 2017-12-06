@@ -104,10 +104,10 @@ bot.on('message', function(event) {
 				console.log(response);
 				if(response.result.metadata.intentName=='find_singer'){
 				console.log('find_singer!');
-				console.log(event);
-				Step(				
-				putContext(user,response.result.contexts[0].parameters),
-				test123()
+				Step(
+				test123(),				
+				putContext(event,response.result.contexts[0].parameters)
+				
 				);
 				}
 
