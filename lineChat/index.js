@@ -161,6 +161,10 @@ function putContext(user,param){
 
 function clearContext(param){
 	console.log('clear context');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
 	
 	console.log(contexts.contexts);
 	contexts.contexts[1].parameters['recent_singer'] = param['singer'];
@@ -170,7 +174,7 @@ function clearContext(param){
 	contexts.contexts[0].parameters['singer'] = "";
 	contexts.contexts[0].parameters['singer.original'] = "";
 	user_arr[userId] = JSON.stringify(contexts.contexts);
-	console.log(contexts.contexts);
+	console.log(user_arr[userId]);
 }
 
 
