@@ -9,9 +9,9 @@ var fs=require('fs');
 var Step = require('step');
 
 var bot = linebot({
-	channelId : '1547763729',
-	channelSecret : '9e852ad5d789e81c1af1a51f6666d7c5',
-	channelAccessToken : 'i9WIA5CANkd5E9XjHYgRfq3DbPS1klBRTvBQRGKahHjZUrvunsYfibJRgnXisONeMXfZRqdYAg20GgQUDf6WB6l+XRTFUrSkpZ94cf3dcG7br0qX6vXihJ7gNFK0yt/aEGWfetUB9mTDTqv0Zrp/SwdB04t89/1O/w1cDnyilFU='
+	channelId : '1550487699',
+	channelSecret : 'b5f5fa46550e29342d9dd02f65a338b1',
+	channelAccessToken : 'JLLQQ1hO+SnP8gNUBqaFciBGWrqwFlwu9C3l9DX5K3zpzIvQS07tf5D8/1jK72Glfji1yhNhxJsJ0v/mhfbI8zlnKHmyGchne66Npukq/dPIF2s+NgsXn4OaEHu5g3mkLdC18Ee2nnSbTatOzD2lAAdB04t89/1O/w1cDnyilFU='
 });
 
 
