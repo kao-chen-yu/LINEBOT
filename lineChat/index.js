@@ -165,8 +165,8 @@ function clearContext(response){
 			var recent_song = i;
 	}
 	
-	contexts.contexts[recent_song].parameters['recent_singer'] = contexts.contexts[find_singer_followup].parameters.parameters['singer'];
-	contexts.contexts[recent_song].parameters['recent_singer.original'] = contexts.contexts[find_singer_followup].parameters.parameters['singer.original'];	
+	contexts.contexts[recent_song].parameters['recent_singer'] = contexts.contexts[find_singer_followup].parameters['singer'];
+	contexts.contexts[recent_song].parameters['recent_singer.original'] = contexts.contexts[find_singer_followup].parameters['singer.original'];	
 	contexts.contexts[find_singer_followup].parameters['singer'] = "";
 	contexts.contexts[find_singer_followup].parameters['singer.original'] = "";
 	console.log(contexts.contexts[recent_song]);
