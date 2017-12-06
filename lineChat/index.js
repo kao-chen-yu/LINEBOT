@@ -55,7 +55,7 @@ bot.on('message', function(event) {
 		
 			var context_test = response.result.contexts;
 			console.log('===========================================================');
-			console.log(response);
+			console.log(response.result.contexts);
 						
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
