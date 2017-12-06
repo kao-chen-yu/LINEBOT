@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'singer': "",'singer.original': ""}}]};
 var user_arr = [];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
