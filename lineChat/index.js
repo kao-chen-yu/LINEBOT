@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = [{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}];
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}]};
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
   if (event.message.type = 'text') {
@@ -29,13 +29,13 @@ bot.on('message', function(event) {
 	if(singer == 'test'){
 		var options = {
 			sessionId: uuid(),
-			contexts: contexts
+			contexts: contexts.contexts
 		};
 	}
 	else{
 		var options = {
 			sessionId: uuid(),
-			contexts: contexts
+			contexts: contexts.contexts
 		};		
 	}
 	console.log('singers' + singer);
@@ -115,11 +115,9 @@ bot.on('message', function(event) {
 
 function putContext(param){
 	console.log('put context');
-	console.log(JSON.stringify(contexts));
 	singer = param['singer.original'];
-	console.log(contexts[0]);
-	//contexts[0].parameters.singer = singer;
-	//contexts[0].parameters['singer.original'] = singer;
+	//console.log(contexts.context[0]);
+
 }
 const app = express();
 const linebotParser = bot.parser();
