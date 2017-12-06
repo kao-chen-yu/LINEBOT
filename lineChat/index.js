@@ -115,7 +115,7 @@ bot.on('message', function(event) {
 				console.log('error list');
 				//console.log(error);
 				});
-			else{
+			}else{
 				event.reply(speech).then(function(data) {
 				// success 
 				console.log(response);
