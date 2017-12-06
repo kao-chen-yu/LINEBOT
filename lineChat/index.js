@@ -158,17 +158,11 @@ function putContext(user,param){
 function clearContext(response){
 	console.log('clear context');
 	
-	for(var i=0;i<response.result.contexts.length;i++){
-		if(response.result.contexts[i].name == 'find_singer-followup')
-			var find_singer_followup = i;
-		else if (response.result.contexts[i].name == 'recent_song')
-			var recent_song = i;
-	}
 	console.log(contexts.contexts);
-	contexts.contexts[recent_song].parameters['recent_singer'] = contexts.contexts[find_singer_followup].parameters['singer'];
-	contexts.contexts[recent_song].parameters['recent_singer.original'] = contexts.contexts[find_singer_followup].parameters['singer.original'];	
-	contexts.contexts[find_singer_followup].parameters['singer'] = "";
-	contexts.contexts[find_singer_followup].parameters['singer.original'] = "";
+	contexts.contexts[1].parameters['recent_singer'] = contexts.contexts[0].parameters['singer'];
+	contexts.contexts[1].parameters['recent_singer.original'] = contexts.contexts[0].parameters['singer.original'];	
+	contexts.contexts[0].parameters['singer'] = "";
+	contexts.contexts[0].parameters['singer.original'] = "";
 	console.log(contexts.contexts[recent_song]);
 }
 
