@@ -95,7 +95,8 @@ bot.on('message', function(event) {
 				if(response.result.metadata.intentName=='find_singer'){
 				console.log('find_singer!');
 				Step(
-				putContext(response.result)
+				putContext(response.result.contexts[0].parameters),
+				test()
 				);
 				}
 
@@ -114,7 +115,10 @@ bot.on('message', function(event) {
 	console.log(test);
   }
 });
-
+function test(){
+	console.log('test');
+	
+}
 function putContext(param){
 	console.log('put context');
 	console.log(param);
