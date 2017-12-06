@@ -161,6 +161,8 @@ function clearContext(response){
 	console.log(contexts.contexts);
 	contexts.contexts[1].parameters['recent_singer'] = contexts.contexts[0].parameters['singer'];
 	contexts.contexts[1].parameters['recent_singer.original'] = contexts.contexts[0].parameters['singer.original'];	
+	contexts.contexts[1].parameters['recent_song'] = contexts.contexts[0].parameters['song'];
+	contexts.contexts[1].parameters['recent_song.original'] = contexts.contexts[0].parameters['song.original'];	
 	contexts.contexts[0].parameters['singer'] = "";
 	contexts.contexts[0].parameters['singer.original'] = "";
 	console.log(contexts.contexts);
