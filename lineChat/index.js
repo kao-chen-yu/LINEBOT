@@ -88,9 +88,6 @@ bot.on('message', function(event) {
 			
 			}
 			else{
-				event.reply(speech).then(function(data) {
-				// success 
-				console.log(response);
 				if(response.result.metadata.intentName=='find_singer'){
 				console.log('find_singer!');
 				Step(
@@ -98,7 +95,9 @@ bot.on('message', function(event) {
 				test123()
 				);
 				}
-
+				event.reply(speech).then(function(data) {
+				// success 
+				console.log(response);
 				}).catch(function(error) {
 				// error 
 				console.log('error replay');
