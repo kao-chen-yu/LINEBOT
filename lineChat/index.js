@@ -52,13 +52,13 @@ bot.on('message', function(event) {
 			console.log(JSON.stringify(context_test));
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
-			
+			var param = response.result.contexts[0].parameters;
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
 					singer=param['singer.original'];
 				else{				
-				var param = response.result.contexts[0].parameters;
+				param = response.result.contexts[0].parameters;
 				console.log('find_singer - custom' +singer);
 				}
 				var path='./song_list/'+singer+'.txt';
@@ -103,7 +103,6 @@ bot.on('message', function(event) {
 				}).catch(function(error) {
 				// error 
 				console.log('error replay');
-				console.log(error);
 				});
 			}
 	});
@@ -123,8 +122,6 @@ function putContext(param){
 	console.log('put context1');
 	console.log(param);
 	singer = param['singer.original'];
-	//singer = param['singer.original'];
-	//console.log(contexts.context[0]);
 	contexts.contexts[0].parameters['singer'] = singer;
 	contexts.contexts[0].parameters['singer.original'] = singer;
 }
