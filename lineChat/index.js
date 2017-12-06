@@ -21,6 +21,7 @@ var test ='test sent';
 var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}]};
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
+  console.log('context-------------------------------------------');
   console.log(contexts);
   if (event.message.type = 'text') {
     var msg = event.message.text;
@@ -76,9 +77,9 @@ bot.on('message', function(event) {
 							//line bot replay
 							event.reply(speech).then(function(data) {
 							// success 
-								console.log(response);
-								
-							
+							Step(
+							clearContext();
+							);													
 							}).catch(function(error) {
 							// error 
 							console.log('error');
