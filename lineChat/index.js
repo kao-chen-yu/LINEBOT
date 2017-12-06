@@ -141,12 +141,12 @@ function putContext(user,param){
 		var userId = user.source.userId; 
 	
 	singer = param['singer.original'];
-	for(var i=0;i<response.result.contexts.length;i++){
+	/*for(var i=0;i<response.result.contexts.length;i++){
 		if(response.result.contexts[i].name == 'find_singer-followup')
 			var find_singer_followup = i;
 
-	}
-	console.log('i :' + i);
+	}*/
+	console.log(contexts.contexts);
 	contexts.contexts[find_singer_followup].parameters['singer'] = singer;
 	contexts.contexts[find_singer_followup].parameters['singer.original'] = singer;
 	user_arr[userId] = JSON.stringify(contexts.contexts);
