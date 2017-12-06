@@ -104,7 +104,7 @@ bot.on('message', function(event) {
 			else if (response.result.metadata.intentName== 'playlist_controll '){
 				for(var i=0;i<response.result.contexts.length;i++){
 			if(response.result.contexts[i].name == 'playlist_controll')
-			var recent_song =  = response.result.contexts[i].parameters;
+			var recent_song =  response.result.contexts[i].parameters;
 			}
 			console.log('------- playlist_controll------------');
 			console.log(recent_song);
