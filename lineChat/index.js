@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recentsinger': "",'recentsinger.original': ""}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}}]};
 var user_arr = [];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
@@ -96,10 +96,14 @@ bot.on('message', function(event) {
 							}).catch(function(error) {
 							// error 
 							console.log('error');
-							console.log(error);
+							//console.log(error);
 							});			
 					});			
 			
+			}
+			else if (response.result.metadata.intentName== 'playlist_controll '){
+				
+				
 			}
 			else{
 				event.reply(speech).then(function(data) {
@@ -117,7 +121,7 @@ bot.on('message', function(event) {
 				}).catch(function(error) {
 				// error 
 				console.log('error replay');
-				console.log(error);
+				//console.log(error);
 				});
 			}
 	});
@@ -165,6 +169,7 @@ function clearContext(param){
 	contexts.contexts[1].parameters['recent_song.original'] = param['song.original'];	
 	contexts.contexts[0].parameters['singer'] = "";
 	contexts.contexts[0].parameters['singer.original'] = "";
+	user_arr[userId] = JSON.stringify(contexts.contexts);
 	console.log(contexts.contexts);
 }
 
