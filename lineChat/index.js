@@ -35,8 +35,10 @@ bot.on('message', function(event) {
 		var userId = event.source.userId; 
 	
 	if(user_arr[userId] != undefined){
+		console.log('user undefined !');
 	contexts.contexts = user_arr[userId];
 	}
+	console.log(contexts.contexts);
 	if(singer == 'test'){
 		var options = {
 			sessionId: uuid(),
@@ -139,9 +141,6 @@ function putContext(user,param){
 	singer = param['singer.original'];
 	contexts.contexts[0].parameters['singer'] = singer;
 	contexts.contexts[0].parameters['singer.original'] = singer;
-	console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
-	console.log(contexts.contexts);
-	console.log( JSON.stringify(contexts.contexts));
 	user_arr[userId] = JSON.stringify(contexts.contexts);
 	console.log('------------user context-------------');
 	console.log(user_arr[userId]);
