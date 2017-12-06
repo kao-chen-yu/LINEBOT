@@ -96,7 +96,7 @@ bot.on('message', function(event) {
 				console.log('find_singer!');
 				Step(
 				putContext(response.result.contexts[0].parameters),
-				test()
+				test123()
 				);
 				}
 
@@ -115,7 +115,7 @@ bot.on('message', function(event) {
 	console.log(test);
   }
 });
-function test(){
+function test123(){
 	console.log('test');
 	
 }
