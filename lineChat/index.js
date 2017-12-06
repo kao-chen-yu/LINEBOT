@@ -78,7 +78,7 @@ bot.on('message', function(event) {
 							event.reply(speech).then(function(data) {
 							// success 
 							Step(
-							clearContext();
+							clearContext()
 							);													
 							}).catch(function(error) {
 							// error 
