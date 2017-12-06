@@ -91,7 +91,7 @@ bot.on('message', function(event) {
 							event.reply(speech).then(function(data) {
 							// success 
 							Step(
-							clearContext(param)
+							clearContext(event,param)
 							);													
 							}).catch(function(error) {
 							// error 
@@ -159,7 +159,7 @@ function putContext(user,param){
 	console.log(user_arr[userId]);
 }
 
-function clearContext(param){
+function clearContext(user,param){
 	console.log('clear context');
 	if(user.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
