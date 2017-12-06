@@ -88,19 +88,18 @@ bot.on('message', function(event) {
 			
 			}
 			else{
-				if(response.result.metadata.intentName=='find_singer'){
-				console.log('find_singer!');
-				Step(
-				putContext(response.result.contexts[0].parameters),
-				test123()
-				).catch(function(error) {
-				// error 
-				console.log('error replay');
-				});
-				}
 				event.reply(speech).then(function(data) {
 				// success 
 				console.log(response);
+				if(response.result.metadata.intentName=='find_singer'){
+				console.log('find_singer!');
+				Step(
+				console.log(event);
+				putContext(response.result.contexts[0].parameters),
+				test123()
+				);
+				}
+
 				}).catch(function(error) {
 				// error 
 				console.log('error replay');
