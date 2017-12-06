@@ -145,6 +145,7 @@ function putContext(user,param){
 			var find_singer_followup = i;
 
 	}
+	console.log('i :' + i);
 	contexts.contexts[find_singer_followup].parameters['singer'] = singer;
 	contexts.contexts[find_singer_followup].parameters['singer.original'] = singer;
 	user_arr[userId] = JSON.stringify(contexts.contexts);
