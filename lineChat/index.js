@@ -143,7 +143,7 @@ function putContext(user,param){
 	contexts.contexts[0].parameters['singer'] = singer;
 	contexts.contexts[0].parameters['singer.original'] = singer;
 	user_arr[userId] = JSON.stringify(contexts.contexts);
-	console.log('------------user context-------------');
+	console.log('------------user context--------------');
 	console.log(user_arr[userId]);
 }
 
