@@ -56,7 +56,7 @@ bot.on('message', function(event) {
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
-					console.log(response.result);
+					console.log(response.result.parameters['singer.original']);
 					//singer=param['singer.original'];
 				else{				
 				param = response.result.contexts[0].parameters;
