@@ -101,7 +101,7 @@ bot.on('message', function(event) {
 
 				}).catch(function(error) {
 				// error 
-				console.log('error');
+				console.log('error replay');
 				});
 			}
 	});
@@ -119,8 +119,8 @@ function putContext(param){
 	//singer = param['singer.original'];
 	//singer = param['singer.original'];
 	//console.log(contexts.context[0]);
-	contexts.contexts[0].parameters['singer'] = singer;
-	contexts.contexts[0].parameters['singer.original'] = singer;
+	//contexts.contexts[0].parameters['singer'] = singer;
+	//contexts.contexts[0].parameters['singer.original'] = singer;
 }
 const app = express();
 const linebotParser = bot.parser();
