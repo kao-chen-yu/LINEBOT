@@ -60,7 +60,7 @@ bot.on('message', function(event) {
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech;
 			
-			for(int i=0;i<response.result.contexts.length;i++){
+			for(var i=0;i<response.result.contexts.length;i++){
 			if(response.result.contexts[i].name == 'find_singer-followup')
 			var param = response.result.contexts[i].parameters;
 			}
