@@ -21,6 +21,7 @@ var test ='test sent';
 var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {"singer": "","singer.original": ""}}]};
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
+  console.log(contexts);
   if (event.message.type = 'text') {
     var msg = event.message.text;
 	var sessionid= uuid();
@@ -117,7 +118,8 @@ function putContext(param){
 	console.log('put context');
 	singer = param['singer.original'];
 	//console.log(contexts.context[0]);
-
+	contexts.contexts[0].parameters['singer'] = singer;
+	contexts.contexts[0].parameters['singer.original'] = singer;
 }
 const app = express();
 const linebotParser = bot.parser();
