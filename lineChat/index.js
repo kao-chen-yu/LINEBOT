@@ -163,7 +163,7 @@ function clearContext(response){
 	contexts.contexts[1].parameters['recent_singer.original'] = contexts.contexts[0].parameters['singer.original'];	
 	contexts.contexts[0].parameters['singer'] = "";
 	contexts.contexts[0].parameters['singer.original'] = "";
-	console.log(contexts.contexts[recent_song]);
+	console.log(contexts.contexts);
 }
 
 
