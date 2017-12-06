@@ -29,6 +29,14 @@ bot.on('message', function(event) {
 	var sessionid= uuid();
 	var speech='';
 	
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId 
+	
+	if(user_arr[userId] != undefined){
+	contexts.contexts = user_arr[userId];
+	}
 	if(singer == 'test'){
 		var options = {
 			sessionId: uuid(),
@@ -130,7 +138,7 @@ function putContext(user,param){
 	singer = param['singer.original'];
 	contexts.contexts[0].parameters['singer'] = singer;
 	contexts.contexts[0].parameters['singer.original'] = singer;
-	//user_arr[userId] = JSON.stringify(contexts.context);
+	user_arr[userId] = JSON.stringify(contexts.context);
 }
 
 function clearContext(){
@@ -138,6 +146,9 @@ function clearContext(){
 	contexts.contexts[0].parameters['singer'] = "";
 	contexts.contexts[0].parameters['singer.original'] = "";
 }
+
+
+
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
