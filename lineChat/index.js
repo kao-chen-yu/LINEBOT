@@ -77,10 +77,8 @@ bot.on('message', function(event) {
 							event.reply(speech).then(function(data) {
 							// success 
 								console.log(response);
-								if(response.result.metadata.intentName=='find_singer'){
-								console.log('find_singer!');
-								singer=param['singer.original'];}
-
+								
+							
 							}).catch(function(error) {
 							// error 
 							console.log('error');
@@ -119,11 +117,17 @@ function test123(){
 	
 }
 function putContext(param){
-	console.log('put context1');
+	console.log('put context');
 	console.log(param);
 	singer = param['singer.original'];
 	contexts.contexts[0].parameters['singer'] = singer;
 	contexts.contexts[0].parameters['singer.original'] = singer;
+}
+
+function clearContext(){
+	console.log('clear context');
+	contexts.contexts[0].parameters['singer'] = "";
+	contexts.contexts[0].parameters['singer.original'] = "";
 }
 const app = express();
 const linebotParser = bot.parser();
