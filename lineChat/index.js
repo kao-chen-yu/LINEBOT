@@ -101,10 +101,10 @@ bot.on('message', function(event) {
 					});			
 			
 			}
-			else if (response.result.metadata.intentName== 'playlist_controll '){
+			//else if (response.result.metadata.intentName== 'playlist_controll '){
 				
 				
-			}
+			//}
 			else{
 				event.reply(speech).then(function(data) {
 				// success 
