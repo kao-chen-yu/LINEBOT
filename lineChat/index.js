@@ -69,6 +69,9 @@ bot.on('message', function(event) {
 				singer=param['singer.original'];
 				console.log('find_singer - custom' +singer);
 				}
+				
+				console.log('-----------param----------');
+				console.log(param);
 				var path='./song_list/'+singer+'.txt';
 					fs.readFile(path, function (err, data) {
 						if (err){ 
