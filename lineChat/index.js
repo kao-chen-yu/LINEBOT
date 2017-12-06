@@ -52,12 +52,11 @@ bot.on('message', function(event) {
 			console.log(JSON.stringify(context_test));
 			//get dialogflow's sentence
 			speech = response.result.fulfillment.speech ;
-
+			param = response.result.contexts[0].parameters;
 			//find_singer or listen_song
 			if(response.result.metadata.intentName=='find_singer - custom' || response.result.metadata.intentName =='listen_song'){
 				if(response.result.metadata.intentName =='listen_song')
-					console.log(response.result.parameters['singer.original']);
-					//singer=param['singer.original'];
+					singer=param['singer.original'];
 				else{				
 				param = response.result.contexts[0].parameters;
 				console.log('find_singer - custom' +singer);
