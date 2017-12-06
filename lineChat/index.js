@@ -49,7 +49,7 @@ bot.on('message', function(event) {
 			contexts: contexts.contexts
 		};		
 	}
-	console.log('singers' + contexts.contexts[0].parameters['singer.original']);
+	console.log('singers' + contexts.contexts[0]);
 	
 	
 	// query information 
