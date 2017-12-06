@@ -41,13 +41,9 @@ bot.on('message', function(event) {
 	console.log(contexts.contexts);
 		var options = {
 			sessionId: uuid(),
-			contexts: contexts.contexts
+			contexts: JSON.parse(contexts.contexts)
 		};
-	
-		var options = {
-			sessionId: uuid(),
-			contexts: contexts.contexts
-		};	
+		
 		console.log('options-----------------------');
 		console.log(options);
 	
