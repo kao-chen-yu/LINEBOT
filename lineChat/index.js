@@ -102,6 +102,7 @@ bot.on('message', function(event) {
 				}).catch(function(error) {
 				// error 
 				console.log('error replay');
+				console.log(error);
 				});
 			}
 	});
@@ -116,7 +117,7 @@ bot.on('message', function(event) {
 
 function putContext(param){
 	console.log('put context');
-	//singer = param['singer.original'];
+	singer = param['singer.original'];
 	//singer = param['singer.original'];
 	//console.log(contexts.context[0]);
 	//contexts.contexts[0].parameters['singer'] = singer;
