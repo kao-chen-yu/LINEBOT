@@ -117,9 +117,11 @@ bot.on('message', function(event) {
 			
 			try{
 			if (recent_song['playlist_action.original'] == '查看')
-			Step(
-				listPlayList(user_info,recent_song)	
-			);
+				listPlayList(user_info,recent_song,function(result){
+					console.log('callback list');
+					speech = result;
+				});	
+
 			else{
 			Step(
 				checkPlayList(user_info),
@@ -134,9 +136,11 @@ bot.on('message', function(event) {
 			}).catch(function(error) {
 				// error 
 				console.log('error list');
-				console.log(error);
+				//console.log(error);
 				});
-			}else{
+			}
+			
+			else{
 				event.reply(speech).then(function(data) {
 				// success 
 				console.log(response);
@@ -263,7 +267,7 @@ function addPlayList(user,recent_song){
 	}
 }
 
-function listPlayList(user,recent_song){
+function listPlayList(user,recent_song,cb){
 	
 	console.log('----------list playlist--------');
 	if(user.type == 'group'){
@@ -276,7 +280,7 @@ function listPlayList(user,recent_song){
     if (err) throw err;
 	
     console.log(data.toString());
-	speech = data.toString();
+	cb(data.toString());
 });
 	
 }
