@@ -131,6 +131,8 @@ bot.on('message', function(event) {
 			}catch(err){
 				console.log('add error');
 			}
+			console.log('-----------------lsit speech---------------');
+			console.log(speech);
 			event.reply(speech).then(function(data) {
 
 			}).catch(function(error) {
