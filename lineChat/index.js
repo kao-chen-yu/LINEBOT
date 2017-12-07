@@ -115,7 +115,8 @@ bot.on('message', function(event) {
 			
 			event.reply(speech).then(function(data) {
 			Step(
-			checkPlayList(user_info)
+			checkPlayList(user_info),
+			addPlayList()
 			);
 			}).catch(function(error) {
 				// error 
@@ -223,8 +224,15 @@ function checkPlayList(user){
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
 	
+	return f_path;
+	
 }
-
+function addPlayList(){
+	
+	console.log('add play list');
+	console.log(argument[1]);
+	
+}
 
 const app = express();
 const linebotParser = bot.parser();
