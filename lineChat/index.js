@@ -114,7 +114,11 @@ bot.on('message', function(event) {
 			var user_info =  event.source;
 			Step(
 			checkPlayList(user_info)
-			);
+			).catch(function(error) {
+				// error 
+				console.log('error list');
+				//console.log(error);
+				});;
 			event.reply(speech).then(function(data) {
 			}).catch(function(error) {
 				// error 
@@ -197,9 +201,9 @@ function checkPlayList(user){
 	
 	console.log(' check playlist ');
 	if(user.type == 'group')
-		var f_path = './playlist/group' + user.groupId + user.userId ; 
+		var f_path = './playlist/group/' + user.groupId + user.userId ; 
 	else 
-		var f_path = './playlist/user' + user.userId ;
+		var f_path = './playlist/user/' + user.userId ;
 	
 	console.log('-------path--------');
 	console.log(f_path);
