@@ -198,19 +198,16 @@ function checkPlayList(user){
 	
 	console.log(' check playlist ');
 	if(user.type == 'group')
-		var f_path = '/playlist/group/' + user.groupId + user.userId ; 
+		var f_path = 'playlist/group/' + user.groupId + user.userId ; 
 	else 
-		var f_path = '/playlist/user/' + user.userId ;
+		var f_path = 'playlist/user/' + user.userId ;
 	
 	console.log('-------path--------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
 	if(fs.existsSync(f_path) == false){
 		//fs.mkdirSync(f_path,0777);
-		fs.mkdir('playlist/group/', function (err) {
-		if(err) {
-			console.log(err);
-    }
+
 })
 	}
 	console.log('-------sync--------');
