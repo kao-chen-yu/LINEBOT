@@ -276,6 +276,7 @@ function listPlayList(user,recent_song){
     if (err) throw err;
 	
     console.log(data.toString());
+	speech = data.toString();
 });
 	
 }
