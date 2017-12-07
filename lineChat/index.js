@@ -107,6 +107,8 @@ bot.on('message', function(event) {
 				for(var i=0;i<response.result.contexts.length;i++){
 			if(response.result.contexts[i].name == 'recent_song')
 			var recent_song =  response.result.contexts[i].parameters;
+				if (recent_song['playlist_singername.original'] == '')
+					recent_song['playlist_singername.original'] = '暫時';
 			}
 			console.log('------- playlist_controll------------');
 			console.log(recent_song);
