@@ -205,9 +205,18 @@ function checkPlayList(user){
 	console.log('-------path--------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
+	if(fs.existsSync(f_path) == false)
+		createDictionary(f_path);
 	
 }
 
+function createDictionary(f_path){
+	
+	console.log('create dictionary');
+	fs.mkdirSync(f_path);
+	console.log(fs.existsSync(f_path));
+	
+}
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
