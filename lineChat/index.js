@@ -120,7 +120,7 @@ bot.on('message', function(event) {
 			}).catch(function(error) {
 				// error 
 				console.log('error list');
-				//console.log(error);
+				console.log(error);
 				});
 			}else{
 				event.reply(speech).then(function(data) {
