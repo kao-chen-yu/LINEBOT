@@ -174,7 +174,7 @@ bot.on('message', function(event) {
 					
 					console.log('-----------------list speech---------------');
 					console.log(speech);
-					event.reply(speech).then(function(data) {
+					event.reply(song_list).then(function(data) {
 
 					}).catch(function(error) {
 					// error 
