@@ -116,7 +116,9 @@ bot.on('message', function(event) {
 			event.reply(speech).then(function(data) {
 			Step(
 			checkPlayList(user_info),
-			addPlayList()
+			function 2(){
+			console.log(arguments);
+			}
 			);
 			}).catch(function(error) {
 				// error 
