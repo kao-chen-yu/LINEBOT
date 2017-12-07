@@ -116,7 +116,7 @@ bot.on('message', function(event) {
 			event.reply(speech).then(function(data) {
 			if (recent_song['playlist_action.original'] == '查看')
 			Step(
-			listPlayList(user_info);	
+			listPlayList(user_info)	
 			);
 			else{
 			Step(
