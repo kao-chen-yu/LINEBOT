@@ -181,6 +181,7 @@ bot.on('message', function(event) {
 					console.log('error list');
 					//console.log(error);
 					});
+					event.replyToken = uuid();
 					}
 			});
 			}
