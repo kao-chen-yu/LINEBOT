@@ -124,7 +124,7 @@ bot.on('message', function(event) {
 					console.log('-----------------lsit2 speech---------------');
 					console.log(speech);
 					event.reply(speech).then(function(data) {
-
+					event.replyToken = uuid();
 					}).catch(function(error) {
 					// error 
 					console.log('error list');
@@ -136,10 +136,10 @@ bot.on('message', function(event) {
 			Step(
 				checkPlayList(user_info),
 				addPlayList(user_info,recent_song)
-			);
+			);}
 			}catch(err){
 				console.log('add error');
-			}
+			
 			console.log('-----------------lsit speech---------------');
 			console.log(speech);
 			event.reply(speech).then(function(data) {
