@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'recent_singer': "",'recent_singer.original': ""}}]};
 var user_arr = [];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
@@ -171,7 +171,7 @@ bot.on('message', function(event) {
 					
 					
 					console.log('-----------------list speech---------------');
-					console.log(Array.isArray(song_list));
+					
 					event.reply(song_list).then(function(data) {
 
 					}).catch(function(error) {
