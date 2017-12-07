@@ -169,8 +169,6 @@ bot.on('message', function(event) {
 					console.log('callback player list');
 					var song_list = result.split('\n');
 					
-					for(var i=0;i<song_list.length;i++){
-					speech = song_list[i];
 					
 					console.log('-----------------list speech---------------');
 					console.log(speech);
@@ -181,8 +179,8 @@ bot.on('message', function(event) {
 					console.log('error list');
 					//console.log(error);
 					});
-					event.replyToken = uuid();
-					}
+					
+					
 			});
 			}
 			
