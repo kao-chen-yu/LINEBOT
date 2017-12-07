@@ -199,15 +199,15 @@ function checkPlayList(user){
 	
 	console.log(' check playlist ');
 	if(user.type == 'group'){
-		var f_path = 'playlist/group/';
+		var f_path = 'playlist/group';
 		if(fs.existsSync(f_path) == false){
 			console.log(' check playlist ');
 		fs.mkdirSync(f_path);}
-		f_path = f_path + user.groupId;
+		f_path = f_path + '/' + user.groupId;
 		if(fs.existsSync(f_path) == false){
 			console.log(' check playlist ');
 		fs.mkdirSync(f_path);}
-		f_path = f_path + user.userId ;
+		f_path = f_path + '/' +user.userId ;
 		if(fs.existsSync(f_path) == false){
 			console.log(' check playlist ');
 		fs.mkdirSync(f_path);}			
@@ -231,9 +231,9 @@ function addPlayList(user,recent_song){
 	
 	console.log('add play list');
 	if(user.type == 'group'){
-		var f_path = 'playlist/group/' + user.groupId + user.userId + recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/group/' + user.groupId + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
-		var f_path = 'playlist/user/' + user.userId + recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
 	
 	console.log('--------palylist name------------');
