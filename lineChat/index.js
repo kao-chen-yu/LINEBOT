@@ -116,12 +116,14 @@ bot.on('message', function(event) {
 			event.reply(speech).then(function(data) {
 			if (recent_song['playlist_action.original'] == '查看')
 			Step(
-				
+			listPlayList(user_info);	
 			);
+			else{
 			Step(
 			checkPlayList(user_info),
 			addPlayList(user_info,recent_song)
 			);
+			}
 			}).catch(function(error) {
 				// error 
 				console.log('error list');
