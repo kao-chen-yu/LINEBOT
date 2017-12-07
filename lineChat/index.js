@@ -206,8 +206,9 @@ function checkPlayList(user){
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
 	if(fs.existsSync(f_path) == false)
-		createDictionary(f_path);
-	
+		Step(
+		createDictionary(f_path)
+		);
 }
 
 function createDictionary(f_path){
