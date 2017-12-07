@@ -197,21 +197,27 @@ function clearContext(user,param){
 function checkPlayList(user){
 	
 	console.log(' check playlist ');
-	if(user.type == 'group')
-		var f_path = 'playlist/group/' + user.groupId + user.userId ; 
-	else 
-		var f_path = 'playlist/user/' + user.userId ;
-	
+	if(user.type == 'group'){
+		var f_path = 'playlist/group/';
+		if(fs.existsSync(f_path) == false)
+			fs.mkdirSync(f_path);
+		f_path = f_path + user.groupId;
+		if(fs.existsSync(f_path) == false)
+			fs.mkdirSync(f_path);
+		f_path = f_path + user.userId ;
+			
+	}else{ 
+		
+		var f_path = 'playlist/user/';
+		if(fs.existsSync(f_path) == false)
+			fs.mkdirSync(f_path);
+		f_path = f_path + user.userId ;
+		if(fs.existsSync(f_path) == false)
+			fs.mkdirSync(f_path);
+	}
 	console.log('-------path--------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
-	if(fs.existsSync(f_path) == false){
-		fs.mkdirSync('playlist/group',0777);
-
-
-	}
-	console.log('-------sync--------');
-	console.log(fs.existsSync('playlist/group'));
 	
 }
 
