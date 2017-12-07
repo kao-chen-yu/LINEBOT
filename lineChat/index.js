@@ -235,9 +235,19 @@ function addPlayList(user,recent_song){
 	}else{
 		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
-	
+	var song_info = recent_song['recent_singer.original'] +'\t' +recent_song['recent_song.original'] + '\n';
 	console.log('--------palylist name------------');
 	console.log(f_path);
+	console.log(fs.existsSync(f_path));
+	console.log('---------song_info---------------');
+	console.log(song_info);
+	if(fs.existsSync(f_path) == false){
+		console.log('----------create playlist and add song----------');
+		fs.writeFileSync(f_path,song_info);
+	}else{
+		console.log('----------playlist exist and add song -----------');
+		fs.appendFileSync(f_path,song_info);
+	}
 }
 
 const app = express();
