@@ -114,6 +114,10 @@ bot.on('message', function(event) {
 			var user_info =  event.source;
 			
 			event.reply(speech).then(function(data) {
+			if (recent_song['playlist_action.original'] == '查看')
+			Step(
+				
+			);
 			Step(
 			checkPlayList(user_info),
 			addPlayList(user_info,recent_song)
@@ -250,6 +254,22 @@ function addPlayList(user,recent_song){
 	}
 }
 
+function listPlayList(user){
+	
+	console.log('----------list playlist--------');
+	if(user.type == 'group'){
+		var f_path = 'playlist/group/' + user.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	}else{
+		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	}
+	
+	fs.readFile(f_path, function (err, data) {
+    if (err) throw err;
+	
+    console.log(data.toString());
+});
+	
+}
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
