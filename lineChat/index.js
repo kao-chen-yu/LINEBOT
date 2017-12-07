@@ -171,7 +171,7 @@ bot.on('message', function(event) {
 					
 					
 					console.log('-----------------list speech---------------');
-					console.log(song_list.isArray());
+					console.log(Array.isArray(song_list));
 					event.reply(song_list).then(function(data) {
 
 					}).catch(function(error) {
