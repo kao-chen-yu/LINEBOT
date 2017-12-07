@@ -116,7 +116,7 @@ bot.on('message', function(event) {
 			event.reply(speech).then(function(data) {
 			Step(
 			checkPlayList(user_info),
-			function 2(){
+			function step2(){
 			console.log(arguments);
 			}
 			);
