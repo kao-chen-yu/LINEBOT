@@ -116,7 +116,7 @@ bot.on('message', function(event) {
 			event.reply(speech).then(function(data) {
 			if (recent_song['playlist_action.original'] == '查看')
 			Step(
-			listPlayList(user_info)	
+			listPlayList(user_info,recent_song)	
 			);
 			else{
 			Step(
@@ -256,7 +256,7 @@ function addPlayList(user,recent_song){
 	}
 }
 
-function listPlayList(user){
+function listPlayList(user,recent_song){
 	
 	console.log('----------list playlist--------');
 	if(user.type == 'group'){
