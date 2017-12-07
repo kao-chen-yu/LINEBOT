@@ -165,7 +165,7 @@ bot.on('message', function(event) {
 			
 			var user_info =  event.source;
 			console.log('------- player_controll------------');
-			if (recent_song['playlist_action.original'] == '播放'){
+			if (recent_song['play_action.original'] == '播放'){
 				console.log('------- player_controll------------');
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback player list');
