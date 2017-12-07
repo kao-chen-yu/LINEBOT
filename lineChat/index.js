@@ -112,14 +112,11 @@ bot.on('message', function(event) {
 			console.log(recent_song);
 			
 			var user_info =  event.source;
+			
+			event.reply(speech).then(function(data) {
 			Step(
 			checkPlayList(user_info)
-			).catch(function(error) {
-				// error 
-				console.log('error list');
-				//console.log(error);
-				});;
-			event.reply(speech).then(function(data) {
+			);
 			}).catch(function(error) {
 				// error 
 				console.log('error list');
