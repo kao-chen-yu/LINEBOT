@@ -101,6 +101,7 @@ bot.on('message', function(event) {
 					});			
 			
 			}
+			//-----------------------------------------------------------------------
 			else if (response.result.metadata.intentName== 'playlist_controll'){
 				console.log('------- playlist_controll------------');
 				for(var i=0;i<response.result.contexts.length;i++){
@@ -111,6 +112,9 @@ bot.on('message', function(event) {
 			console.log(recent_song);
 			
 			var user_info =  event.source;
+			Step(
+			checkPlayList(user_info);
+			);
 			event.reply(speech).then(function(data) {
 			}).catch(function(error) {
 				// error 
@@ -189,7 +193,19 @@ function clearContext(user,param){
 	console.log(user_arr[userId]);
 }
 
-
+function checkPlayList(user){
+	
+	console.log(' check playlist ');
+	if(user.type == 'group')
+		var f_path = './playlist/group' + user.groupId + user.userId ; 
+	else 
+		var f_path = './playlist/user' + user.userId ;
+	
+	console.log('-------path--------');
+	console.log(f_path);
+	console.log(fs.existsSync(f_path));
+	
+}
 
 const app = express();
 const linebotParser = bot.parser();
