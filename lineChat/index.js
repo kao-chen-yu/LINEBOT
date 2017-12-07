@@ -104,7 +104,7 @@ bot.on('message', function(event) {
 			//-----------------------------------------------------------------------
 			else if (response.result.metadata.intentName== 'playlist_controll'){
 				console.log('------- playlist_controll------------');
-				for(var i=0;i<response.result.contexts.length;i++){
+			for(var i=0;i<response.result.contexts.length;i++){
 			if(response.result.contexts[i].name == 'recent_song')
 			var recent_song =  response.result.contexts[i].parameters;
 				if (recent_song['playlist_singername.original'] == '')
@@ -152,8 +152,40 @@ bot.on('message', function(event) {
 				console.log('add error');
 			}
 			}
+			else if (response.result.metadata.intentName== 'player_controll '){
+			for(var i=0;i<response.result.contexts.length;i++){
+			if(response.result.contexts[i].name == 'recent_song')
+			var recent_song =  response.result.contexts[i].parameters;
+				if (recent_song['playlist_singername.original'] == '')
+					recent_song['playlist_singername.original'] = '暫時';
+			}
+			console.log('------- player_controll------------');
+			console.log(recent_song);
 			
-			else{
+			var user_info =  event.source;
+			
+			if (recent_song['playlist_action.original'] == '播放')
+				listPlayList(user_info,recent_song,function(result){
+					console.log('callback player list');
+					var song_list = result.split('\n');
+					
+					for(var i=0 ; i<song_list.length;i++){
+					speech = song_list[i];
+					
+					console.log('-----------------list speech---------------');
+					console.log(speech);
+					event.reply(speech).then(function(data) {
+
+					}).catch(function(error) {
+					// error 
+					console.log('error list');
+					//console.log(error);
+					});
+					}
+				});
+				
+			//----------------------------------------------------------------
+			}else{
 				event.reply(speech).then(function(data) {
 				// success 
 				console.log(response);
