@@ -205,9 +205,14 @@ function checkPlayList(user){
 	console.log('-------path--------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
-	if(fs.existsSync(f_path) == false)
+	if(fs.existsSync(f_path) == false){
 		//fs.mkdirSync(f_path,0777);
-	
+		fs.mkdir(f_path, function (err) {
+		if(err) {
+			console.log(err);
+    }
+})
+	}
 	console.log('-------sync--------');
 	console.log(fs.existsSync(f_path));
 	
