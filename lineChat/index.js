@@ -199,13 +199,17 @@ function checkPlayList(user){
 	console.log(' check playlist ');
 	if(user.type == 'group'){
 		var f_path = 'playlist/group/';
-		if(fs.existsSync(f_path) == false)
-			fs.mkdirSync(f_path);
+		if(fs.existsSync(f_path) == false){
+			console.log(' check playlist ');
+		fs.mkdirSync(f_path);}
 		f_path = f_path + user.groupId;
-		if(fs.existsSync(f_path) == false)
-			fs.mkdirSync(f_path);
+		if(fs.existsSync(f_path) == false){
+			console.log(' check playlist ');
+		fs.mkdirSync(f_path);}
 		f_path = f_path + user.userId ;
-			
+		if(fs.existsSync(f_path) == false){
+			console.log(' check playlist ');
+		fs.mkdirSync(f_path);}			
 	}else{ 
 		
 		var f_path = 'playlist/user/';
