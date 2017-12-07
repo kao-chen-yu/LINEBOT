@@ -163,14 +163,14 @@ bot.on('message', function(event) {
 			console.log(recent_song);
 			
 			var user_info =  event.source;
-			
+			try{
 			if (recent_song['playlist_action.original'] == '播放')
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback player list');
 					var song_list = result.split('\n');
 					
-					for(var i=0 ; i<song_list.length;i++){
-					speech = song_list[i];
+					
+					speech = result;
 					
 					console.log('-----------------list speech---------------');
 					console.log(speech);
@@ -181,9 +181,9 @@ bot.on('message', function(event) {
 					console.log('error list');
 					//console.log(error);
 					});
-					}
+					
 				});
-				
+			}catch(err){console.log(err);}
 			//----------------------------------------------------------------
 			}else{
 				event.reply(speech).then(function(data) {
