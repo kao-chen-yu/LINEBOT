@@ -113,17 +113,22 @@ bot.on('message', function(event) {
 			
 			var user_info =  event.source;
 			
-			event.reply(speech).then(function(data) {
+			try{
 			if (recent_song['playlist_action.original'] == '查看')
 			Step(
-			listPlayList(user_info,recent_song)	
+				listPlayList(user_info,recent_song)	
 			);
 			else{
 			Step(
-			checkPlayList(user_info),
-			addPlayList(user_info,recent_song)
+				checkPlayList(user_info),
+				addPlayList(user_info,recent_song)
 			);
 			}
+			}catch(err){
+				console.log('add error');
+			}
+			event.reply(speech).then(function(data) {
+
 			}).catch(function(error) {
 				// error 
 				console.log('error list');
