@@ -152,6 +152,7 @@ bot.on('message', function(event) {
 				console.log('add error');
 			}
 			}
+			
 			else if (response.result.metadata.intentName== 'player_controll'){
 			for(var i=0;i<response.result.contexts.length;i++){
 			if(response.result.contexts[i].name == 'recent_song')
@@ -163,8 +164,8 @@ bot.on('message', function(event) {
 			console.log(recent_song);
 			
 			var user_info =  event.source;
-			try{
-			if (recent_song['playlist_action.original'] == '播放')
+
+			if (recent_song['playlist_action.original'] == '播放'){
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback player list');
 					var song_list = result.split('\n');
@@ -182,8 +183,9 @@ bot.on('message', function(event) {
 					//console.log(error);
 					});
 					
-				});
-			}catch(err){console.log(err);}
+			});
+			}
+			
 			//----------------------------------------------------------------
 			}else{
 				event.reply(speech).then(function(data) {
