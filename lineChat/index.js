@@ -137,7 +137,9 @@ bot.on('message', function(event) {
 				checkPlayList(user_info),
 				addPlayList(user_info,recent_song)
 			);
-			
+			}catch(err){
+				console.log('add error');
+			}
 			console.log('-----------------lsit speech---------------');
 			console.log(speech);
 			event.reply(speech).then(function(data) {
@@ -148,9 +150,7 @@ bot.on('message', function(event) {
 				//console.log(error);
 				});
 			}
-			}catch(err){
-				console.log('add error');
-			}
+			
 			}
 			
 			else if (response.result.metadata.intentName== 'player_controll'){
