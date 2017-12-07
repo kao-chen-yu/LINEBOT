@@ -206,12 +206,12 @@ function checkPlayList(user){
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
 	if(fs.existsSync(f_path) == false){
-		fs.mkdirSync(f_path,0777);
+		fs.mkdirSync('playlist/group',0777);
 
 
 	}
 	console.log('-------sync--------');
-	console.log(fs.existsSync(f_path));
+	console.log(fs.existsSync('playlist/group'));
 	
 }
 
