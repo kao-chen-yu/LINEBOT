@@ -116,7 +116,7 @@ bot.on('message', function(event) {
 			event.reply(speech).then(function(data) {
 			Step(
 			checkPlayList(user_info),
-			addPlayList(arguments)
+			addPlayList(user_info,recent_song)
 			);
 			}).catch(function(error) {
 				// error 
@@ -227,11 +227,17 @@ function checkPlayList(user){
 	return f_path;
 	
 }
-function addPlayList(arguments){
+function addPlayList(user,recent_song){
 	
 	console.log('add play list');
-	console.log(arguments);
+	if(user.type == 'group'){
+		var f_path = 'playlist/group/' + user.groupId + user.userId + recent_song['playlist_singername.original'] + '.txt';
+	}else{
+		var f_path = 'playlist/user/' + user.userId + recent_song['playlist_singername.original'] + '.txt';
+	}
 	
+	console.log('--------palylist name------------');
+	console.log(f_path);
 }
 
 const app = express();
