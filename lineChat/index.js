@@ -230,7 +230,7 @@ function checkPlayList(user){
 function addPlayList(){
 	
 	console.log('add play list');
-	console.log(arguments);
+	
 	
 }
 
