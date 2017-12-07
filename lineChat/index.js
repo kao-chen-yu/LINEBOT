@@ -214,7 +214,7 @@ function checkPlayList(user){
 function createDictionary(f_path){
 	
 	console.log('create dictionary');
-	fs.mkdirSync(f_path);
+	fs.mkdirSync(f_path,0777);
 	console.log(fs.existsSync(f_path));
 	
 }
