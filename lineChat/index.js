@@ -113,7 +113,7 @@ bot.on('message', function(event) {
 			
 			var user_info =  event.source;
 			Step(
-			checkPlayList(user_info);
+			checkPlayList(user_info)
 			);
 			event.reply(speech).then(function(data) {
 			}).catch(function(error) {
