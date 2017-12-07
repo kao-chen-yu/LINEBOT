@@ -231,7 +231,7 @@ function addPlayList(user,recent_song){
 	
 	console.log('add play list');
 	if(user.type == 'group'){
-		var f_path = 'playlist/group/' + user.groupId + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/group/' + user.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
 		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
