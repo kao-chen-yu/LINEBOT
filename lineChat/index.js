@@ -116,7 +116,7 @@ bot.on('message', function(event) {
 			var user_info =  event.source;
 			
 			try{
-			if (recent_song['playlist_action.original'] == '查看')
+			if (recent_song['playlist_action.original'] == '查看'){
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback list');
 					speech = result;
@@ -131,7 +131,7 @@ bot.on('message', function(event) {
 					//console.log(error);
 					});
 				});	
-
+			}
 			else{
 			Step(
 				checkPlayList(user_info),
@@ -164,8 +164,9 @@ bot.on('message', function(event) {
 			console.log(recent_song);
 			
 			var user_info =  event.source;
-
+			console.log('------- player_controll------------');
 			if (recent_song['playlist_action.original'] == '播放'){
+				console.log('------- player_controll------------');
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback player list');
 					var song_list = result.split('\n');
