@@ -202,6 +202,19 @@ bot.on('message', function(event) {
 				});
 				}
 			});
+			}else if (recent_song['play_action.original'] == '暫停'){
+				console.log('------暫停-------');
+				changepause(user_info,function(result){
+					console.log(result);
+					event.reply(speech).then(function(data) {
+
+					}).catch(function(error) {
+					// error 
+					console.log('error list');
+					//console.log(error);
+					});
+				});
+			
 			}
 			
 			//----------------------------------------------------------------
