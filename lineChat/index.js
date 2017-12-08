@@ -167,7 +167,7 @@ bot.on('message', function(event) {
 			var user_info =  event.source;
 			if (recent_song['play_action.original'] == '播放'){
 				checkpause(user_info, function(pause){
-				if(pause == true){
+				if(pause == 'true'){
 					getSongnow(user_info,function(result){
 						
 						console.log(result);
