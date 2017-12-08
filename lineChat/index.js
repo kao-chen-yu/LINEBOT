@@ -18,7 +18,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'recent_singer': "",'recent_singer.original': ""}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}}]};
 var user_arr = [];
 bot.on('message', function(event) {
   console.log(event); //把收到訊息的 event 印出來看看
@@ -153,6 +153,7 @@ bot.on('message', function(event) {
 			
 			}
 			
+			//--------------------------------------------------------------------
 			else if (response.result.metadata.intentName== 'player_controll'){
 			for(var i=0;i<response.result.contexts.length;i++){
 			if(response.result.contexts[i].name == 'recent_song')
@@ -165,14 +166,31 @@ bot.on('message', function(event) {
 			
 			var user_info =  event.source;
 			if (recent_song['play_action.original'] == '播放'){
+				checkpause(user_info function(pause){
+				if(pause == true){
+					getSongnow(user_info,function(result){
+						
+						console.log(result);
+						
+						event.reply('開始撥放' + result ).then(function(data) {
+
+					}).catch(function(error) {
+					// error 
+					console.log('error list');
+					//console.log(error);
+					});
+					});
+				changepause(user_info,function(result){
+					
+				});
+				}else{
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback player list');
-					var song_list = result.split('\n');
-					
-					
+				
+										
 					console.log('-----------------list speech---------------');
 					
-					event.reply(song_list).then(function(data) {
+					event.reply('開始撥放' + result ).then(function(data) {
 
 					}).catch(function(error) {
 					// error 
@@ -181,6 +199,8 @@ bot.on('message', function(event) {
 					});
 					
 					
+				});
+				}
 			});
 			}
 			
@@ -257,6 +277,10 @@ function clearContext(user,param){
 	console.log(user_arr[userId]);
 }
 
+function saveSonglist(song_list){
+	contexts.contexts[2].parameters['song_list'] = song_list;
+	contexts.contexts[2].parameters['now'] = 0;
+}
 function checkPlayList(user){
 	
 	console.log(' check playlist ');
@@ -328,6 +352,152 @@ function listPlayList(user,recent_song,cb){
 	cb(data.toString());
 });
 	
+}
+
+function setPlayList(user,recent_song,cb){
+
+	console.log('---------prepare playlist ------');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	console.log(contexts.contexts);
+	
+	if(user.type == 'group'){
+		var f_path = 'playlist/group/' + user.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	}else{
+		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	}
+	
+	fs.readFile(f_path, function (err, data) {
+    if (err) throw err;
+	
+	if(contexts.contexts[2].name == 'play_list')
+		console.log(' set is true ');
+	
+    console.log(data.toString());
+	
+	contexts.contexts[2].parameters['song_list'] = data.toString();
+	contexts.contexts[2].parameters['now'] = 0;
+	
+	user_arr[userId] = JSON.stringify(contexts.contexts);
+	cb('set playlist success');
+});
+	
+}
+
+function getSongnow(user,cb){
+	
+	console.log('-----get sonng ----------');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	var song_json = JSON.parse(user_arr[userId]);
+    
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'play_list')
+			var songlist_json = song_json[i];
+	}
+	console.log(songlist_json);
+	
+	var song_arr = songlist_json.parameters['song_list'].split('\n');
+	
+	cb(song_arr[songlist_json.parameters['now']]);
+	
+}
+
+function nextSong(user,cb){
+	
+	console.log('---------next------------');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	var song_json = JSON.parse(user_arr[userId]);
+    
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'play_list'){
+			var songlist_json = song_json[i];
+			songlist_json.parameters['now'] = parseInt(songlist_json.parameters['now'])+1;
+			song_json[i] = songlist_json;
+	}}
+	user_arr[userId] = JSON.stringify(song_json);
+	
+	cb('next song success');
+}
+
+function previous(user,cb){
+	
+	console.log('---------previous------------');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	var song_json = JSON.parse(user_arr[userId]);
+    
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'play_list'){
+			var songlist_json = song_json[i];
+			if( songlist_json.parameters['now'] >0)
+				songlist_json.parameters['now'] = parseInt(songlist_json.parameters['now'])-1;
+			else
+				songlist_json.parameters['now'] = 0;
+			song_json[i] = songlist_json;
+	}}
+
+	user_arr[userId] = JSON.stringify(song_json);
+	
+	cb('previous song success');
+}
+
+function changepause(user,cb){
+	
+	console.log('---------pause------------');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	var song_json = JSON.parse(user_arr[userId]);
+    
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'play_list'){
+			var songlist_json = song_json[i];
+				if(songlist_json.parameters['pause'] == 'true')
+					songlist_json.parameters['pause'] = "false";
+				else
+					songlist_json.parameters['pause'] = "true";
+			song_json[i] = songlist_json;
+	}}
+
+	user_arr[userId] = JSON.stringify(song_json);
+	
+	cb('pause success');
+
+}
+
+
+function checkpause(user,cb){
+	
+	console.log('---------pause------------');
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	var song_json = JSON.parse(user_arr[userId]);
+    
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'play_list'){
+			var songlist_json = song_json[i];			
+				cb(songlist_json.parameters['pause']);
+			
+	}}
 }
 const app = express();
 const linebotParser = bot.parser();
