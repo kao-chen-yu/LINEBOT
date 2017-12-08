@@ -133,6 +133,19 @@ bot.on('message', function(event) {
 					});
 				});	
 			}
+			else if(recent_song['playlist_action.original'] == '刪除'){
+				deletePlayList(user_info, function(result){
+					event.reply(speech).then(function(data) {
+
+					}).catch(function(error) {
+						// error 
+						console.log('error delete list');
+						//console.log(error);
+					});
+				});
+			}
+			
+			
 			else{
 			Step(
 				checkPlayList(user_info),
@@ -396,6 +409,28 @@ function addPlayList(user,recent_song){
 	}
 }
 
+function deletePlayList(user,cb){
+	
+	console.log('delete play list');
+	if(user.source.type == 'group'){
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	}else{
+		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	}
+
+	console.log('--------palylist name------------');
+	console.log(f_path);
+	console.log(fs.existsSync(f_path));
+	if(fs.existsSync(f_path) == false){
+		console.log('----------no file ----------');
+		console.log(f_path);
+	}else{
+		console.log('----------playlist exist and delete -----------');
+		fs.unlinkSync(f_path);
+	}
+	console.log(fs.existsSync(f_path));
+	cb('delete end');
+}
 function listPlayList(user,recent_song,cb){
 	
 	console.log('----------list playlist--------');
