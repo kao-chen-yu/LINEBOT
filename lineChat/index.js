@@ -230,6 +230,21 @@ bot.on('message', function(event) {
 						
 					});
 				});
+			}else if (recent_song['play_action.original'] == '上一首'){
+				console.log('------上一手------');
+				previousSong(user_info , function(result){
+					console.log(result);
+					getSongnow(user_info , function(result_song){
+					event.reply('開始撥放' + result_song ).then(function(data) {
+
+					}).catch(function(error) {
+					// error 
+					console.log('error list');
+					//console.log(error);
+					});	
+						
+					});
+				});
 			}
 			
 			//----------------------------------------------------------------
@@ -459,7 +474,7 @@ function nextSong(user,cb){
 	cb('next song success');
 }
 
-function previous(user,cb){
+function previousSong(user,cb){
 	
 	console.log('---------previous------------');
 	if(user.source.type == 'group')
