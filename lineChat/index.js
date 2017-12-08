@@ -139,7 +139,7 @@ bot.on('message', function(event) {
 			);}
 			}catch(err){
 				console.log('add error');
-			
+				console.log(err);
 			console.log('-----------------lsit speech---------------');
 			console.log(speech);
 			event.reply(speech).then(function(data) {
@@ -340,7 +340,7 @@ function addPlayList(user,recent_song){
 function listPlayList(user,recent_song,cb){
 	
 	console.log('----------list playlist--------');
-	if(user.type == 'group'){
+	if(user.source.type == 'group'){
 		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
 		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
@@ -365,7 +365,7 @@ function setPlayList(user,recent_song,cb){
 	
 	console.log(contexts.contexts);
 	
-	if(user.type == 'group'){
+	if(user.source.type == 'group'){
 		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
 		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
