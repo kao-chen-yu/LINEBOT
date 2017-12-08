@@ -448,7 +448,7 @@ function listPlayListname(user,cb){
 	if(user.source.type == 'group'){
 		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId ;
 	}else{
-		var f_path = 'playlist/user/' + user.source.userId +;
+		var f_path = 'playlist/user/' + user.source.userId ;
 	}
 
 	console.log('--------palylist dictionary------------');
