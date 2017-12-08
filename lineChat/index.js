@@ -366,7 +366,7 @@ function setPlayList(user,recent_song,cb){
 	console.log(contexts.contexts);
 	
 	if(user.source.type == 'group'){
-		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
 		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
