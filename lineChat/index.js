@@ -454,7 +454,7 @@ function listPlayListname(user,cb){
 	console.log('--------palylist dictionary------------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
-	fs.readdir(f_path, function(data){
+	fs.readdir(f_path, function(err,data){
 		if(err){
 			console.log('read dictionary error');
 			cb(' 沒有此user 歌單資料 ');
