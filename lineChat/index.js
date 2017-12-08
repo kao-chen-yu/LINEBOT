@@ -184,13 +184,13 @@ bot.on('message', function(event) {
 					
 				});
 				}else{
-				listPlayList(user_info,recent_song,function(result){
+				setPlayList(user_info,recent_song,function(result){
 					console.log('callback player list');
-				
-										
+					console.log(result);
+					getSongnow(user_info,function(result_song){
 					console.log('-----------------list speech---------------');
 					
-					event.reply('開始撥放' + result ).then(function(data) {
+					event.reply('開始撥放' + result_song ).then(function(data) {
 
 					}).catch(function(error) {
 					// error 
@@ -198,7 +198,7 @@ bot.on('message', function(event) {
 					//console.log(error);
 					});
 					
-					
+					});
 				});
 				}
 			});
