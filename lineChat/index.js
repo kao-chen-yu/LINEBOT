@@ -148,7 +148,7 @@ bot.on('message', function(event) {
 				listPlayListname(user_info , function(result){
 					
 					speech = result;
-					event.reply("結果如下 : ~"speech).then(function(data) {
+					event.reply("結果如下 : "speech).then(function(data) {
 
 					}).catch(function(error) {
 						// error 
@@ -156,7 +156,7 @@ bot.on('message', function(event) {
 						//console.log(error);
 					});
 				});
-			else{
+			}else{
 			Step(
 				checkPlayList(user_info),
 				addPlayList(user_info,recent_song)
