@@ -340,9 +340,9 @@ function listPlayList(user,recent_song,cb){
 	
 	console.log('----------list playlist--------');
 	if(user.type == 'group'){
-		var f_path = 'playlist/group/' + user.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
-		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
 	
 	fs.readFile(f_path, function (err, data) {
@@ -365,9 +365,9 @@ function setPlayList(user,recent_song,cb){
 	console.log(contexts.contexts);
 	
 	if(user.type == 'group'){
-		var f_path = 'playlist/group/' + user.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
-		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
 	
 	fs.readFile(f_path, function (err, data) {
