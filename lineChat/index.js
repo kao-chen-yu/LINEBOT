@@ -441,8 +441,10 @@ function listPlayList(user,recent_song,cb){
 	}
 	
 	fs.readFile(f_path, function (err, data) {
-    if (err) console.log('listPlaylist error');
-	
+    if (err) {
+		console.log('listPlaylist error');
+		cb('查無此歌單');
+	}
     console.log(data.toString());
 	cb(data.toString());
 });
