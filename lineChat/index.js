@@ -445,8 +445,9 @@ function listPlayList(user,recent_song,cb){
 		console.log('listPlaylist error');
 		cb('查無此歌單');
 	}
+	else{
     console.log(data.toString());
-	cb(data.toString());
+	cb(data.toString());}
 });
 	
 }
