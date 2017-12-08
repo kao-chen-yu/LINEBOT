@@ -113,7 +113,7 @@ bot.on('message', function(event) {
 			console.log('------- playlist_controll------------');
 			console.log(recent_song);
 			
-			var user_info =  event.source;
+			var user_info =  event;
 			
 			try{
 			if (recent_song['playlist_action.original'] == '查看'){
@@ -284,16 +284,16 @@ function saveSonglist(song_list){
 function checkPlayList(user){
 	
 	console.log(' check playlist ');
-	if(user.type == 'group'){
+	if(user.source.type == 'group'){
 		var f_path = 'playlist/group';
 		if(fs.existsSync(f_path) == false){
 			console.log(' check playlist ');
 		fs.mkdirSync(f_path);}
-		f_path = f_path + '/' + user.groupId;
+		f_path = f_path + '/' + user.source.groupId;
 		if(fs.existsSync(f_path) == false){
 			console.log(' check playlist ');
 		fs.mkdirSync(f_path);}
-		f_path = f_path + '/' +user.userId ;
+		f_path = f_path + '/' +user.source.userId ;
 		if(fs.existsSync(f_path) == false){
 			console.log(' check playlist ');
 		fs.mkdirSync(f_path);}			
@@ -302,7 +302,7 @@ function checkPlayList(user){
 		var f_path = 'playlist/user/';
 		if(fs.existsSync(f_path) == false)
 			fs.mkdirSync(f_path);
-		f_path = f_path + user.userId ;
+		f_path = f_path + user.source.userId ;
 		if(fs.existsSync(f_path) == false)
 			fs.mkdirSync(f_path);
 	}
@@ -316,10 +316,10 @@ function checkPlayList(user){
 function addPlayList(user,recent_song){
 	
 	console.log('add play list');
-	if(user.type == 'group'){
-		var f_path = 'playlist/group/' + user.groupId + '/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+	if(user.source.type == 'group'){
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
-		var f_path = 'playlist/user/' + user.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
+		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
 	var song_info = recent_song['recent_singer.original'] +'\t' +recent_song['recent_song.original'] + '\n';
 	console.log('--------palylist name------------');
