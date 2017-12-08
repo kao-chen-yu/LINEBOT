@@ -134,7 +134,7 @@ bot.on('message', function(event) {
 				});	
 			}
 			else if(recent_song['playlist_action.original'] == '刪除'){
-				deletePlayList(user_info, function(result){
+				deletePlayList(user_info,recent_song, function(result){
 					event.reply(speech).then(function(data) {
 
 					}).catch(function(error) {
@@ -409,7 +409,7 @@ function addPlayList(user,recent_song){
 	}
 }
 
-function deletePlayList(user,cb){
+function deletePlayList(user,recent_song,cb){
 	
 	console.log('delete play list');
 	if(user.source.type == 'group'){
