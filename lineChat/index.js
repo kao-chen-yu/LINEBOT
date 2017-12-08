@@ -144,8 +144,18 @@ bot.on('message', function(event) {
 					});
 				});
 			}
-			
-			
+			else if(recent_song['playlist_action.original'] == '列出'){
+				listPlayListname(user_info , function(result){
+					
+					speech = result;
+					event.reply("結果如下 : "speech).then(function(data) {
+
+					}).catch(function(error) {
+						// error 
+						console.log('error list dictionary ');
+						//console.log(error);
+					});
+				});
 			else{
 			Step(
 				checkPlayList(user_info),
@@ -430,6 +440,31 @@ function deletePlayList(user,recent_song,cb){
 	}
 	console.log(fs.existsSync(f_path));
 	cb('delete end');
+}
+
+function listPlayListname(user,cb){
+	
+	console.log('delete play list');
+	if(user.source.type == 'group'){
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId ;
+	}else{
+		var f_path = 'playlist/user/' + user.source.userId +;
+	}
+
+	console.log('--------palylist dictionary------------');
+	console.log(f_path);
+	console.log(fs.existsSync(f_path));
+	fs.readdir(f_path, function(data){
+		if(err){
+			console.log('read dictionary error');
+			cb(' 沒有此user 歌單資料 ');
+		}
+		else{
+		cb(data);
+		}
+	});
+	
+	
 }
 function listPlayList(user,recent_song,cb){
 	
