@@ -112,7 +112,7 @@ bot.on('message', function(event) {
 							recent_song['playlist_singername.original'] = '暫時';
 				}
 			console.log('------- playlist_controll------------');
-			console.log(recent_song);
+			console.log(recent_song['playlist_action.original']);
 			
 			var user_info =  event;
 			
