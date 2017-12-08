@@ -329,6 +329,7 @@ function addPlayList(user,recent_song){
 	console.log(song_info);
 	if(fs.existsSync(f_path) == false){
 		console.log('----------create playlist and add song----------');
+		console.log(f_path);
 		fs.writeFileSync(f_path,song_info);
 	}else{
 		console.log('----------playlist exist and add song -----------');
