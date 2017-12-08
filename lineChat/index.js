@@ -215,6 +215,21 @@ bot.on('message', function(event) {
 					});
 				});
 			
+			}else if (recent_song['play_action.original'] == '下一首'){
+				console.log('------下一手------');
+				nextSong(user_info , function(result){
+					console.log(result);
+					getSongnow(user_info , function(result_song){
+					event.reply('開始撥放' + result_song ).then(function(data) {
+
+					}).catch(function(error) {
+					// error 
+					console.log('error list');
+					//console.log(error);
+					});	
+						
+					});
+				});
 			}
 			
 			//----------------------------------------------------------------
