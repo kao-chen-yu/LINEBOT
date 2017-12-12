@@ -7,7 +7,6 @@ var apiai = require('apiai');
 var app1 = apiai('df450cef4ea7467a8543a9c0ee587e2e');
 var fs=require('fs');
 var Step = require('step');
-
 var bot = linebot({
 	channelId : '1547763729',
 	channelSecret : '9e852ad5d789e81c1af1a51f6666d7c5',
@@ -20,6 +19,11 @@ var check = false;
 var test ='test sent';
 var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}}]};
 var user_arr = [];
+
+console.log('------start-------');
+setInterval(function() {
+	console.log('waiting');
+}, 60000); // every 5 minutes (300000)
 
 //Line BOT Start-------------------------------------------------------
 bot.on('message', function(event) {

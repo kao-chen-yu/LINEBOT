@@ -1,13 +1,10 @@
-Angel 
+Angel
 
 
 Baby Face
 
 
 Beast
-
-
-Beast 
 
 
 Because of You
@@ -22,22 +19,16 @@ Bridge Over The Trouble Water
 Don't Stop
 
 
-Don't Stop 
-
-
 Don't Stop + 馬德里不思議 + 十三號星期舞
 
 
 Dr. Jolin
 
 
-Dr. Jolin 
-
-
 Ending
 
 
-Get The Party Started 
+Get The Party Started
 
 
 Good-bye
@@ -46,58 +37,52 @@ Good-bye
 Good - Bye
 
 
-Hot - J Remix 
+Hot - J Remix
 
 
-Hot-J Remix 
+Hot-J Remix
 
 
-I Love You Too 
+I Love You Too
 
 
-I'm Not Yours 
+I'm Not Yours
 
 
 Intro
 
 
-﻿Intro
-
-
-I Won't Last A Day Without You 
+I Won't Last A Day Without You
 
 
 J9 Magic Non-Stop Remix
 
 
-J - Start Remix 
+J - Start Remix
 
 
-J-Start Remix 
+J-Start Remix
 
 
 J-Top HITS
 
 
-Kiss Me 
+Kiss Me
 
 
-Lady Marmalade 
+Lady Marmalade
 
 
-L'amour Est Parti 
+L'amour Est Parti
 
 
 Let's Move It
 
 
-Let's Move It 
+Let's Start The Dance
 
 
-Let's Start The Dance 
-
-
-Lovefool 
+Lovefool
 
 
 Love Love Love
@@ -106,22 +91,19 @@ Love Love Love
 Lucky Number
 
 
-Missed Call 
+Missed Call
 
 
 Miss Trouble
 
 
+Mr.Q
+
+
 Mr. Q
 
 
-Mr. Q 
-
-
-Mr.Q 
-
-
-MR.Q  
+MR.Q 
 
 
 OH OH
@@ -133,13 +115,10 @@ OH ! OH !
 Outro
 
 
-Physical 
+Physical
 
 
 Play 我呸
-
-
-Play 我呸 
 
 
 Pretty Pretty Day
@@ -148,7 +127,7 @@ Pretty Pretty Day
 Prove It
 
 
-Secret Talk 
+Secret Talk
 
 
 Show Your Love
@@ -196,16 +175,16 @@ Talk 8
 Talk 9
 
 
-Thank You 
+Thank You
 
 
-The Blower's Daughter 
+The Blower's Daughter
 
 
 The Rose
 
 
-When You Say Nothing At All 
+When You Say Nothing At All
 
 
 You Gotta Know
@@ -220,7 +199,7 @@ You Gotta Know
 七上八下
 
 
-七上八下 + 舞孃 
+七上八下 + 舞孃
 
 
 上街
@@ -232,16 +211,13 @@ You Gotta Know
 乖乖牌
 
 
-乖乖牌 
-
-
 乖貓
 
 
 什麼樣的愛
 
 
-今天你要嫁給我 
+今天你要嫁給我
 
 
 今天妳要嫁給我
@@ -256,7 +232,7 @@ You Gotta Know
 你怎麼連話都說不清楚
 
 
-你怎麼連話都說不清楚 + 檸檬草的味道 + 妥協 
+你怎麼連話都說不清楚 + 檸檬草的味道 + 妥協
 
 
 你是誰
@@ -277,10 +253,7 @@ You Gotta Know
 假裝 
 
 
-假裝  
-
-
-假裝 + 倒帶 
+假裝 + 倒帶
 
 
 假面的告白
@@ -307,16 +280,10 @@ You Gotta Know
 冷．暴力
 
 
-冷暴力 
-
-
-十三號星期舞 
+十三號星期舞
 
 
 即時生效
-
-
-即時生效 
 
 
 反覆記號
@@ -325,22 +292,16 @@ You Gotta Know
 只有一個你
 
 
-和世界做鄰居 
+和世界做鄰居
 
 
 唇唇欲動
-
-
-唇唇欲動 
 
 
 唇語
 
 
 唯舞獨尊
-
-
-唯舞獨尊 
 
 
 唱這首歌
@@ -361,16 +322,13 @@ You Gotta Know
 大藝術家
 
 
-大藝術家 
-
-
 天空
 
 
 天空+倒帶
 
 
-天空 + 詩人漫步 
+天空 + 詩人漫步
 
 
 奴隸船
@@ -403,9 +361,6 @@ You Gotta Know
 娘子漢
 
 
-娘子漢 
-
-
 孤單的人總說無所謂
 
 
@@ -415,9 +370,6 @@ You Gotta Know
 小傷口
 
 
-小傷口 
-
-
 就是愛
 
 
@@ -425,9 +377,6 @@ You Gotta Know
 
 
 彩色相片
-
-
-彩色相片 
 
 
 影舞者
@@ -460,9 +409,6 @@ You Gotta Know
 愛情 36 計
 
 
-愛情 36 計 
-
-
 愛情36計
 
 
@@ -475,10 +421,7 @@ You Gotta Know
 愛無赦
 
 
-愛無赦 
-
-
-愛的天使 
+愛的天使
 
 
 感覺你的存在
@@ -490,13 +433,7 @@ You Gotta Know
 懷念
 
 
-懷念 
-
-
 我
-
-
-我 
 
 
 我依然是你的情人+剪愛
@@ -520,10 +457,7 @@ You Gotta Know
 我知道你很難過
 
 
-我知道你很難過 
-
-
-我知道你很難過 + 離人節 + 開場白 + 愛上了一條街 
+我知道你很難過 + 離人節 + 開場白 + 愛上了一條街
 
 
 我要的選擇
@@ -532,7 +466,7 @@ You Gotta Know
 招牌動作
 
 
-招牌動作 + 大丈夫 
+招牌動作 + 大丈夫
 
 
 捕手
@@ -541,13 +475,10 @@ You Gotta Know
 捨不得
 
 
-旅程 
+旅程
 
 
 日不落
-
-
-日不落 
 
 
 普通朋友
@@ -559,13 +490,7 @@ You Gotta Know
 有人
 
 
-有人 
-
-
 柵欄間隙偷窺你
-
-
-柵欄間隙偷窺你 
 
 
 桃花源
@@ -604,9 +529,6 @@ You Gotta Know
 特務 J
 
 
-特務 J 
-
-
 猜想
 
 
@@ -616,13 +538,7 @@ You Gotta Know
 玩愛之徒
 
 
-玩愛之徒 
-
-
 玩美
-
-
-玩美 
 
 
 由我
@@ -646,9 +562,6 @@ You Gotta Know
 睜一隻眼閉一隻眼
 
 
-睜一隻眼閉一隻眼 
-
-
 睜一隻眼閉一隻眼+野蠻遊戲+許願池的希臘少女+ OH OH
 
 
@@ -661,9 +574,6 @@ You Gotta Know
 第三人稱
 
 
-第三人稱 
-
-
 第二性
 
 
@@ -671,9 +581,6 @@ You Gotta Know
 
 
 美人計
-
-
-美人計 
 
 
 美杜莎
@@ -691,16 +598,10 @@ You Gotta Know
 舞孃
 
 
-舞孃 
-
-
 花蝴蝶
 
 
-花蝴蝶 
-
-
-萬花瞳 
+萬花瞳
 
 
 衣服占心術
@@ -718,9 +619,6 @@ You Gotta Know
 詩人漫步
 
 
-詩人漫步 
-
-
 說愛你
 
 
@@ -733,10 +631,7 @@ You Gotta Know
 迷幻
 
 
-迷幻 
-
-
-迷幻 + Dr. Jolin 
+迷幻 + Dr. Jolin
 
 
 追殺邱比特
@@ -748,10 +643,7 @@ You Gotta Know
 野蠻遊戲
 
 
-野蠻遊戲 
-
-
-野蠻遊戲 + 看我 72 變 
+野蠻遊戲 + 看我 72 變
 
 
 金三角
@@ -760,7 +652,7 @@ You Gotta Know
 開場白
 
 
-開場白  
+開場白 
 
 
 降落傘
@@ -772,9 +664,6 @@ You Gotta Know
 電話皇后
 
 
-電話皇后 
-
-
 非賣品
 
 
@@ -782,9 +671,6 @@ You Gotta Know
 
 
 馬德里不思議
-
-
-馬德里不思議 
 
 
 馬甲上的繩索
@@ -796,9 +682,6 @@ You Gotta Know
 馬賽克
 
 
-馬賽克 
-
-
 騎士精神
 
 
@@ -806,7 +689,4 @@ You Gotta Know
 
 
 黑髮尤物
-
-
-黑髮尤物 
 

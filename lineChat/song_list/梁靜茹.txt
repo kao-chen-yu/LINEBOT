@@ -10,9 +10,6 @@ Bonjour !
 C'est La Vie
 
 
-C'est La Vie 
-
-
 Fly Away
 
 
@@ -28,7 +25,7 @@ Love Is Everything
 Opening+燕尾蝶
 
 
-PK 
+PK
 
 
 Shanghai Memories of 1945
@@ -79,7 +76,7 @@ Talking+無條件為你
 Tiffany
 
 
-Way Back Into Love 
+Way Back Into Love
 
 
 Whoever Finds This I Love You
@@ -88,7 +85,7 @@ Whoever Finds This I Love You
 一夜長大
 
 
-一家一 
+一家一
 
 
 一對一
@@ -115,13 +112,10 @@ Whoever Finds This I Love You
 不是我不明白
 
 
-不是我不明白 
-
-
 不為失戀說抱歉
 
 
-不翼而飛 
+不翼而飛
 
 
 中間
@@ -130,13 +124,7 @@ Whoever Finds This I Love You
 今天情人節
 
 
-今天情人節 
-
-
 你會不會
-
-
-你會不會 
 
 
 你還在不在
@@ -145,25 +133,16 @@ Whoever Finds This I Love You
 偶陣雨
 
 
-偶陣雨 
-
-
 兒歌
 
 
 分手快樂
 
 
-分手快樂 
-
-
 別人的天長地久
 
 
 別再為他流淚
-
-
-別再為他流淚 
 
 
 勇氣
@@ -175,7 +154,7 @@ Whoever Finds This I Love You
 南海姑娘+Talking
 
 
-原來你也唱過我的歌 
+原來你也唱過我的歌
 
 
 只能抱著你
@@ -238,9 +217,6 @@ Whoever Finds This I Love You
 如果能在一起
 
 
-如果能在一起 
-
-
 孤單北半球
 
 
@@ -265,13 +241,7 @@ Whoever Finds This I Love You
 屬於
 
 
-屬於 
-
-
 崇拜
-
-
-崇拜 
 
 
 幸福洋果子店
@@ -304,16 +274,10 @@ Whoever Finds This I Love You
 情歌沒有告訴你
 
 
-情歌沒有告訴你 
-
-
 惡性循環
 
 
 愛久見人心
-
-
-愛久見人心 
 
 
 愛你不是兩三天
@@ -323,9 +287,6 @@ Whoever Finds This I Love You
 
 
 愛情之所以為愛情
-
-
-愛情之所以為愛情 
 
 
 愛是
@@ -382,9 +343,6 @@ Whoever Finds This I Love You
 掌聲響起
 
 
-掌聲響起 
-
-
 接受
 
 
@@ -397,7 +355,7 @@ Whoever Finds This I Love You
 昨天
 
 
-昨日情書 
+昨日情書
 
 
 暖暖
@@ -439,16 +397,10 @@ Whoever Finds This I Love You
 比較愛
 
 
-比較愛 
-
-
 沒有人像你
 
 
 沒有如果
-
-
-沒有如果 
 
 
 沒有水的游泳池
@@ -524,9 +476,6 @@ P
 絲路
 
 
-﻿絲路
-
-
 美麗人生
 
 
@@ -540,9 +489,6 @@ P
 
 
 蔚藍海岸
-
-
-蔚藍海岸 
 
 
 親親
@@ -560,13 +506,13 @@ P
 迷路
 
 
-這一天 
+這一天
 
 
 這是你嗎
 
 
-還是好朋友 
+還是好朋友
 
 
 閃亮的星
