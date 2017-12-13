@@ -416,9 +416,15 @@ function addPlayList(user,recent_song,cb){
 	console.log('---------song_info---------------');
 	console.log(song_info);
 	if(fs.existsSync(f_path) == false){
+		if(recent_song['playlist_singername.original'] == '暫時'){
+			fs.writeFileSync(f_path,song_info);
+		cb('加入至暫時歌單');
+		}
+		else{
 		console.log('----------error playlist not exist----------');
 		console.log(f_path);
 		cb(' 此歌單尚未創建');
+		}
 	}else{
 		console.log('----------playlist exist and add song -----------');
 		fs.appendFileSync(f_path,song_info);
