@@ -160,6 +160,21 @@ bot.on('message', function(event) {
 						//console.log(error);
 					});
 				});
+				
+			}else if (recent_song['playlist_action.original'] == '建立'){
+					createPlayList(user_info,recent_song,function(createresult){
+						
+						speech = addresult;
+						
+						event.reply(speech).then(function(data) {
+
+						}).catch(function(error) {
+						// error 
+						console.log('error create list');
+						//console.log(error);
+						});
+						
+					});
 			//---------加入歌單------------
 			}else{
 				checkPlayList(user_info , function(checkresult){
@@ -429,6 +444,30 @@ function addPlayList(user,recent_song,cb){
 		console.log('----------playlist exist and add song -----------');
 		fs.appendFileSync(f_path,song_info);
 		cb (song_info + ' 以加入至' + recent_song['playlist_singername.original'] +'歌單 ');
+	}
+}
+
+function createPlayList(user,recent_song,cb){
+	
+	console.log('create play list');
+	if(user.source.type == 'group'){
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId + '/' +recent_song['any.original'] + '.txt';
+	}else{
+		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['any.original'] + '.txt';
+	}
+	console.log('--------palylist name------------');
+	console.log(f_path);
+	console.log(fs.existsSync(f_path));
+	console.log('---------song_info---------------');
+	console.log(song_info);
+	if(fs.existsSync(f_path) == false){
+		console.log('----------create playlist and add song----------');
+		console.log(f_path);
+		fs.writeFileSync(f_path,'');
+		cb (recent_song['any.original'] + ' 歌單建立成功 ');
+	}else{
+		console.log('----------playlist exist and add song -----------');
+		cb (recent_song['any.original'] + ' 歌單已存在 ');
 	}
 }
 
