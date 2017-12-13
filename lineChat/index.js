@@ -40,7 +40,7 @@ bot.on('message', function(event) {
 		var userId = event.source.userId; 
 	console.log(user_arr[userId]);
 	if(user_arr[userId] != undefined){
-		console.log('------user had say something !---------');
+		console.log('------user had say something before !---------');
 		contexts.contexts = JSON.parse(user_arr[userId]);
 	}
 	
@@ -120,7 +120,7 @@ bot.on('message', function(event) {
 			
 			var user_info =  event;
 			
-			try{
+
 			if (recent_song['playlist_action.original'] == '查看'){
 				listPlayList(user_info,recent_song,function(result){
 					console.log('callback list');
@@ -160,25 +160,27 @@ bot.on('message', function(event) {
 						//console.log(error);
 					});
 				});
+			//---------加入歌單------------
 			}else{
-			Step(
-				checkPlayList(user_info),
-				addPlayList(user_info,recent_song)
-			);
-			}}catch(err){
-				console.log('add error');
-				//console.log(err);
-			console.log('-----------------add error speech---------------');
-			console.log(speech);
-			event.reply(speech).then(function(data) {
+				checkPlayList(user_info , function(checkresult){
+					
+					console.log(checkresult);
+					
+					addPlayList(user_info,recent_song,function(addresult){
+						
+						speech = addresult;
+						
+						event.reply(speech).then(function(data) {
 
-			}).catch(function(error) {
-				// error 
-				console.log('error list');
-				//console.log(error);
+						}).catch(function(error) {
+						// error 
+						console.log('error list');
+						//console.log(error);
+						});
+					});
+					
 				});
-			}
-			
+			}		
 			}
 			
 			//------------------------player controll--------------------------------
@@ -372,7 +374,7 @@ function saveSonglist(song_list){
 	contexts.contexts[2].parameters['song_list'] = song_list;
 	contexts.contexts[2].parameters['now'] = 0;
 }
-function checkPlayList(user){
+function checkPlayList(user,cb){
 	
 	console.log(' check playlist ');
 	if(user.source.type == 'group'){
@@ -397,9 +399,9 @@ function checkPlayList(user){
 		if(fs.existsSync(f_path) == false)
 			fs.mkdirSync(f_path);
 	}	
-	return f_path;	
+	cb(' create dictionary success ');
 }
-function addPlayList(user,recent_song){
+function addPlayList(user,recent_song,cb){
 	
 	console.log('add play list');
 	if(user.source.type == 'group'){
@@ -414,12 +416,13 @@ function addPlayList(user,recent_song){
 	console.log('---------song_info---------------');
 	console.log(song_info);
 	if(fs.existsSync(f_path) == false){
-		console.log('----------create playlist and add song----------');
+		console.log('----------error playlist not exist----------');
 		console.log(f_path);
-		fs.writeFileSync(f_path,song_info);
+		cb(' 此歌單尚未創建');
 	}else{
 		console.log('----------playlist exist and add song -----------');
 		fs.appendFileSync(f_path,song_info);
+		cb (song_info + ' 以加入至' + recent_song['playlist_singername.original'] +'歌單 ');
 	}
 }
 
