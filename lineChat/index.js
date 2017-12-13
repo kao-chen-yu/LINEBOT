@@ -451,15 +451,13 @@ function createPlayList(user,recent_song,cb){
 	
 	console.log('create play list');
 	if(user.source.type == 'group'){
-		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId + '/' +recent_song['any.original'] + '.txt';
+		var f_path = 'playlist/group/' + user.source.groupId + '/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}else{
-		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['any.original'] + '.txt';
+		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
-	console.log('--------palylist name------------');
+	console.log('--------palylist name-------------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
-	console.log('---------song_info---------------');
-	console.log(song_info);
 	if(fs.existsSync(f_path) == false){
 		console.log('----------create playlist and add song----------');
 		console.log(f_path);
