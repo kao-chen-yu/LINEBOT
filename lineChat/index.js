@@ -430,20 +430,24 @@ function addPlayList(user,recent_song,cb){
 	console.log(fs.existsSync(f_path));
 	console.log('---------song_info---------------');
 	console.log(song_info);
-	if(fs.existsSync(f_path) == false){
-		if(recent_song['playlist_singername.original'] == '暫時'){
-			fs.writeFileSync(f_path,song_info);
-		cb('加入至暫時歌單');
-		}
-		else{
-		console.log('----------error playlist not exist----------');
-		console.log(f_path);
-		cb(' 此歌單尚未創建');
+	if(recent_song['recent_singer.original'] != 'undefined' && recent_song['recent_song.original'] != 'undefined'){
+		if(fs.existsSync(f_path) == false){
+			if(recent_song['playlist_singername.original'] == '暫時'){
+				fs.writeFileSync(f_path,song_info);
+			cb('加入至暫時歌單');
+			}
+			else{
+			console.log('----------error playlist not exist----------');
+			console.log(f_path);
+			cb(' 此歌單尚未創建');
+			}
+		}else{
+			console.log('----------playlist exist and add song -----------');
+			fs.appendFileSync(f_path,song_info);
+			cb (song_info + ' 以加入至' + recent_song['playlist_singername.original'] +'歌單 ');
 		}
 	}else{
-		console.log('----------playlist exist and add song -----------');
-		fs.appendFileSync(f_path,song_info);
-		cb (song_info + ' 以加入至' + recent_song['playlist_singername.original'] +'歌單 ');
+		cb(' 無加入歌手歌曲資訊 ');
 	}
 }
 
