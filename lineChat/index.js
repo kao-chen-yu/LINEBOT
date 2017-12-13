@@ -17,7 +17,7 @@ var bot = linebot({
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}}]};
 var user_arr = [];
 
 console.log('------start-------');
