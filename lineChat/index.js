@@ -462,10 +462,10 @@ function createPlayList(user,recent_song,cb){
 		console.log('----------create playlist and add song----------');
 		console.log(f_path);
 		fs.writeFileSync(f_path,'');
-		cb (recent_song['any.original'] + ' 歌單建立成功 ');
+		cb (recent_song['playlist_singername.original'] + ' 歌單建立成功 ');
 	}else{
 		console.log('----------playlist exist and add song -----------');
-		cb (recent_song['any.original'] + ' 歌單已存在 ');
+		cb (recent_song['playlist_singername.original'] + ' 歌單已存在 ');
 	}
 }
 
