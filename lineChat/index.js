@@ -430,6 +430,7 @@ function addPlayList(user,recent_song,cb){
 	console.log(fs.existsSync(f_path));
 	console.log('---------song_info---------------');
 	console.log(song_info);
+	console.log(recent_song['recent_singer.original'] + recent_song['recent_song.original']);
 	if(recent_song['recent_singer.original'] != 'undefined' && recent_song['recent_song.original'] != 'undefined'){
 		if(fs.existsSync(f_path) == false){
 			if(recent_song['playlist_singername.original'] == '暫時'){
