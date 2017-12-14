@@ -23,6 +23,7 @@ var user_arr = [];
 console.log('------start-------');
 setInterval(function() {
 	console.log('waiting');
+	http.get("http://ezpeer2.herokuapp.com");
 }, 60000); // every 5 minutes (300000)
 
 //Line BOT Start-------------------------------------------------------
