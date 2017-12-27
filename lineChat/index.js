@@ -575,13 +575,14 @@ function setPlayList(user,recent_song,cb){
 		cb('無此歌單資料');
 	}
     //console.log(data.toString());	
-	
+	else{
 	contexts.contexts[2].parameters['song_list'] = data.toString();
 	contexts.contexts[2].parameters['song_list_number'] = data.toString().split('\n').length-1;
 	contexts.contexts[2].parameters['now'] = 0;
 	contexts.contexts[2].parameters['pause'] = 'false';
 	user_arr[userId] = JSON.stringify(contexts.contexts);
 	cb('success');
+	}
 });
 	
 }
