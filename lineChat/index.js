@@ -236,18 +236,28 @@ bot.on('message', function(event) {
 								console.log('callback player list');
 								console.log(result);
 								
-								getSongnow(user_info,function(result_song){
-									console.log('-----------------get song speech---------------');
-					
-									event.reply('開始撥放' + result_song ).then(function(data) {
+								if(result == 'success'){
+									getSongnow(user_info,function(result_song){
+										console.log('-----------------get song speech---------------');
+						
+										event.reply('開始撥放' + result_song ).then(function(data) {
+
+										}).catch(function(error) {
+											// error 
+											console.log('error play replay');
+											//console.log(error);
+										});
+						
+									});
+								}else{
+									event.reply(speech).then(function(data) {
 
 									}).catch(function(error) {
-										// error 
-										console.log('error play replay');
-										//console.log(error);
+									// error 
+									.log('error list');
+									//console.log(error);
 									});
-					
-								});
+								}
 							});
 						}
 					});
@@ -558,15 +568,18 @@ function setPlayList(user,recent_song,cb){
 	}
 	
 	fs.readFile(f_path, function (err, data) {
-    if (err) console.log('setplaylist error');
-		
-    console.log(data.toString());	
+    if (err) {
+		console.log('setplaylist error');
+		cb('無此歌單資料');
+	}
+    //console.log(data.toString());	
+	
 	contexts.contexts[2].parameters['song_list'] = data.toString();
 	contexts.contexts[2].parameters['song_list_number'] = data.toString().split('\n').length-1;
 	contexts.contexts[2].parameters['now'] = 0;
 	contexts.contexts[2].parameters['pause'] = 'false';
 	user_arr[userId] = JSON.stringify(contexts.contexts);
-	cb('set playlist success');
+	cb('success');
 });
 	
 }
