@@ -255,7 +255,7 @@ bot.on('message', function(event) {
 
 									}).catch(function(error) {
 									// error 
-									.log('error list');
+									console.log('error list');
 									//console.log(error);
 									});
 								}
