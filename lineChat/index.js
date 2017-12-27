@@ -686,14 +686,15 @@ function changepause(user,cb){
 function checkpause(user,cb){
 	
 	console.log('---------pause------------');
+	
 	if(user.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
 	else
 		var userId = user.source.userId;
-	if(user_arr[userId]){
-	var song_json = JSON.parse(user_arr[userId]);
-    }else{
+	if(!user_arr[userId]){
 	cb('false');
+    }else{	
+	var song_json = JSON.parse(user_arr[userId]);
 	}
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list'){
