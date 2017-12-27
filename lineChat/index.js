@@ -250,6 +250,7 @@ bot.on('message', function(event) {
 						
 									});
 								}else{
+									speech = result;
 									event.reply(speech).then(function(data) {
 
 									}).catch(function(error) {
