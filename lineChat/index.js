@@ -695,14 +695,14 @@ function checkpause(user,cb){
 	cb('false');
     }else{	
 	var song_json = JSON.parse(user_arr[userId]);
-	}
+	
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list'){
 			var songlist_json = song_json[i];			
 				cb(songlist_json.parameters['pause']);
 			
 	}}
-	
+	}
 	cb('false');
 }
 const app = express();
