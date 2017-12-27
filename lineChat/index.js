@@ -560,11 +560,9 @@ function setPlayList(user,recent_song,cb){
 	fs.readFile(f_path, function (err, data) {
     if (err) console.log('setplaylist error');
 		
-    //console.log(data.toString());	
-	var str = data.toString().split('\n');
-	console.log('~~'+  data.toString().split('\n').length);
+    console.log(data.toString());	
 	contexts.contexts[2].parameters['song_list'] = data.toString();
-	contexts.contexts[2].parameters['song_list_number'] = data.toString();
+	contexts.contexts[2].parameters['song_list_number'] = data.toString().split('\n').length-1;
 	contexts.contexts[2].parameters['now'] = 0;
 	contexts.contexts[2].parameters['pause'] = 'false';
 	user_arr[userId] = JSON.stringify(contexts.contexts);
@@ -606,8 +604,11 @@ function nextSong(user,cb){
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list'){
 			var songlist_json = song_json[i];
-	
-			songlist_json.parameters['now'] = parseInt(songlist_json.parameters['now'])+1;
+			if(songlist_json.parameters['now'] < songlist_json.parameters['song_list_number']-1){
+				songlist_json.parameters['now'] = parseInt(songlist_json.parameters['now'])+1;
+			}else{
+				songlist_json.parameters['now'] = songlist_json.parameters['song_list_number']-1;
+			}
 			song_json[i] = songlist_json;
 	}}
 	user_arr[userId] = JSON.stringify(song_json);
