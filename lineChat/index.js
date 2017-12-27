@@ -561,7 +561,7 @@ function setPlayList(user,recent_song,cb){
     if (err) console.log('setplaylist error');
 		
     //console.log(data.toString());	
-	var str = data.toString();
+	var str = data.toString().split('\n');
 	console.log('~~'+ str[0]);
 	contexts.contexts[2].parameters['song_list'] = data.toString();
 	contexts.contexts[2].parameters['now'] = 0;
