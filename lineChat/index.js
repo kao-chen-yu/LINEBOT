@@ -690,12 +690,13 @@ function checkpause(user,cb){
 		var userId = user.source.userId + user.source.groupId;
 	else
 		var userId = user.source.userId;
-	
+	if(user_arr[userId]){
 	var song_json = JSON.parse(user_arr[userId]);
-    
+    }else{
+	cb('false');
+	}
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list'){
-			console.log('---------pause2------------');
 			var songlist_json = song_json[i];			
 				cb(songlist_json.parameters['pause']);
 			
