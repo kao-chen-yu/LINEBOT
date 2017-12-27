@@ -425,7 +425,7 @@ function addPlayList(user,recent_song,cb){
 	}else{
 		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
-	var song_info = recent_song['recent_singer.original'] +'\t' +recent_song['recent_song.original'] + '\n';
+	var song_info = recent_song['recent_singer.original'] +'\t' +recent_song['recent_song.original'];
 	console.log('--------palylist name------------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
@@ -683,6 +683,8 @@ function checkpause(user,cb){
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
+
+
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen(process.env.PORT || 8080, function() {
