@@ -425,7 +425,7 @@ function addPlayList(user,recent_song,cb){
 	}else{
 		var f_path = 'playlist/user/' + user.source.userId + '/' +recent_song['playlist_singername.original'] + '.txt';
 	}
-	var song_info = recent_song['recent_singer.original'] +'\t' +recent_song['recent_song.original'];
+	var song_info = recent_song['recent_singer.original'] +'\t' +recent_song['recent_song.original'] + '\n';
 	console.log('--------palylist name------------');
 	console.log(f_path);
 	console.log(fs.existsSync(f_path));
@@ -586,8 +586,12 @@ function getSongnow(user,cb){
 	}
 	var song_arr = songlist_json.parameters['song_list'].split('\n');
 	
+	if( songlist_json.parameters['now'] < song_arr.length){
 	cb(song_arr[songlist_json.parameters['now']]);
-	
+	}else{
+	cb(song_arr[song_arr.length-2]);	
+	}
+		
 }
 
 function nextSong(user,cb){
@@ -603,6 +607,7 @@ function nextSong(user,cb){
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list'){
 			var songlist_json = song_json[i];
+	
 			songlist_json.parameters['now'] = parseInt(songlist_json.parameters['now'])+1;
 			song_json[i] = songlist_json;
 	}}
