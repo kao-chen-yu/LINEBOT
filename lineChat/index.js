@@ -695,6 +695,7 @@ function checkpause(user,cb){
     
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list'){
+			console.log('---------pause2------------');
 			var songlist_json = song_json[i];			
 				cb(songlist_json.parameters['pause']);
 			
