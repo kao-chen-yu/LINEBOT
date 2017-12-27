@@ -560,7 +560,9 @@ function setPlayList(user,recent_song,cb){
 	fs.readFile(f_path, function (err, data) {
     if (err) console.log('setplaylist error');
 		
-    console.log(data.toString());	
+    //console.log(data.toString());	
+	var str = data.toString();
+	console.log('~~'+ str[0]);
 	contexts.contexts[2].parameters['song_list'] = data.toString();
 	contexts.contexts[2].parameters['now'] = 0;
 	contexts.contexts[2].parameters['pause'] = 'false';
@@ -584,14 +586,9 @@ function getSongnow(user,cb){
 		if(song_json[i].name == 'play_list')
 			var songlist_json = song_json[i];
 	}
-	var song_arr = songlist_json.parameters['song_list'].split('\n');
+	var song_arr = songlist_json.parameters['song_list'].split('\n');	
 	
-	if( songlist_json.parameters['now'] < song_arr.length-1){
 	cb(song_arr[songlist_json.parameters['now']]);
-	}else{
-	songlist_json.parameters['now'] = song_arr.length-2;
-	cb(song_arr[song_arr.length-2]);	
-	}
 		
 }
 
