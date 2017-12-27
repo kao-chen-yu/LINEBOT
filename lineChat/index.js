@@ -699,6 +699,8 @@ function checkpause(user,cb){
 				cb(songlist_json.parameters['pause']);
 			
 	}}
+	
+	cb('false');
 }
 const app = express();
 const linebotParser = bot.parser();
