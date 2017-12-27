@@ -589,6 +589,7 @@ function getSongnow(user,cb){
 	if( songlist_json.parameters['now'] < song_arr.length-1){
 	cb(song_arr[songlist_json.parameters['now']]);
 	}else{
+	songlist_json.parameters['now'] = song_arr.length-2;
 	cb(song_arr[song_arr.length-2]);	
 	}
 		
