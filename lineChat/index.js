@@ -562,8 +562,9 @@ function setPlayList(user,recent_song,cb){
 		
     //console.log(data.toString());	
 	var str = data.toString().split('\n');
-	console.log('~~'+ str[0]);
+	console.log('~~'+ str.length-1);
 	contexts.contexts[2].parameters['song_list'] = data.toString();
+	contexts.contexts[2].parameters['song_list_number'] = data.toString();
 	contexts.contexts[2].parameters['now'] = 0;
 	contexts.contexts[2].parameters['pause'] = 'false';
 	user_arr[userId] = JSON.stringify(contexts.contexts);
