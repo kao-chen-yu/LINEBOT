@@ -162,7 +162,7 @@ bot.on('message', function(event) {
 					});
 				});
 				
-			}else if (recent_song['playlist_action.original'] == '建立' || '新增'){
+			}else if (recent_song['playlist_action.original'] == '建立'){
 					createPlayList(user_info,recent_song,function(createresult){
 						
 						speech = createresult;
