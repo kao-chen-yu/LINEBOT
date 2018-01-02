@@ -83,7 +83,10 @@ bot.on('message', function(event) {
 				http.get(url,function(response){
 					response.on("data", function(data) {
 						console.log(data.toString());
-		
+						SearchResult(JSON.stringify(data.toString()),function(result){
+							console.log(result);
+							
+						});
 					});
 				});
 			//---------------------playlist controll -----------------------------
@@ -359,7 +362,20 @@ function putContext(user,param){
 	console.log('------------user context--------------');
 	console.log(user_arr[userId]);
 }
-
+function SearchResult(search_result){
+	
+	var songs = search_result.song;
+	var song_list='';
+	for(var i=0;i<songs.length;i++){
+		song_list = song_list + i + '.' + songs[i].song_name;
+		
+		if(i<songs.length)
+			song_list = song_list + '\n';
+	}
+	
+	cb(song_list);
+	
+}
 function clearContext(user,param){
 	console.log('clear context');
 	if(user.source.type == 'group')
