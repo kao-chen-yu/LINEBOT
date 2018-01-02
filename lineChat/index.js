@@ -97,6 +97,23 @@ bot.on('message', function(event) {
 						});
 					});
 				});
+			}else if (response.result.metadata.intentName== 'play_search_song'){
+				for(var i=0;i<response.result.contexts.length;i++){
+					if(response.result.contexts[i].name == 'search_list')
+						var search_list = response.result.contexts[i].parameters;
+				}
+				
+				setSearchSong(search_list,event,function(result){
+					event.reply(result).then(function(data) {
+					}).catch(function(error) {
+					// error 
+					console.log('error 查看 replay');
+					//console.log(error);
+					});
+					
+				});
+				
+				
 			//---------------------playlist controll -----------------------------
 			}else if (response.result.metadata.intentName== 'playlist_controll'){
 				console.log('------- playlist_controll------------');
@@ -383,7 +400,7 @@ function SearchResult(search_result,singer,user,cb){
 	var list = '';
 	for(var i=0;i<songs.length;i++){
 		song_list = song_list + (i+1) + ' ' + songs[i].song_name + '\n';
-		list = list + singer + '\t' +songs[i].song_name + '\n'
+		list = list +songs[i].song_name + '\n'
 		
 	}
 	
@@ -405,6 +422,30 @@ function SearchResult(search_result,singer,user,cb){
 	
 	cb(song_list);
 	
+}
+
+function setSearchSong(search_list,user,cb){
+	
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
+	
+	var user_json = JSON.parse(user_arr[userId]);
+	
+	var num = search_list.number;
+	var singer = search_list.singer;
+	var song_arr = search_list['list'].split('\n');
+	
+	for(var i=0;i<user_json.length;i++){
+		console.log(user_json[i].name);
+		if(user_json[i].name == 'recent_song'){
+			user_json[i].parameters['recent_singer'] = singer;
+			user_json[i].parameters['recent_song'] = song_arr[num];
+		}
+	}
+	
+	cb('開始撥放' + singer + '\t' + song_arr[num]);
 }
 function clearContext(user,param){
 	console.log('clear context');
