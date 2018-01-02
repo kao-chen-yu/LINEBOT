@@ -374,11 +374,11 @@ function SearchResult(search_result,cb){
 	var songs = search_result.song;
 	var song_list='';
 	for(var i=0;i<songs.length;i++){
-		song_list = song_list + (i+1) + '.' + songs[i].song_name;
+		song_list = song_list + (i+1) + ' ' + songs[i].song_name;
 		
-		if(i<songs.length)
-			song_list = song_list + '\n';
 	}
+	
+	song_list = song_list + '你要聽哪一首'
 	
 	cb(song_list);
 	
