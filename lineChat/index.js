@@ -362,7 +362,7 @@ function putContext(user,param){
 	console.log('------------user context--------------');
 	console.log(user_arr[userId]);
 }
-function SearchResult(search_result){
+function SearchResult(search_result,cb){
 	
 	var songs = search_result.song;
 	var song_list='';
