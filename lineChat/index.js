@@ -372,6 +372,8 @@ function putContext(user,param){
 }
 function SearchResult(search_result,singer,user,cb){
 	
+	console.log('------user------');
+	console.log(user);
 	if(user.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
 	else
