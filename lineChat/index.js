@@ -666,12 +666,26 @@ function getSongnow(user,cb){
 		var userId = user.source.userId;
 	
 	var song_json = JSON.parse(user_arr[userId]);
-    
+	
+	
 	for(var i=0;i<song_json.length;i++){
 		if(song_json[i].name == 'play_list')
 			var songlist_json = song_json[i];
 	}
-	var song_arr = songlist_json.parameters['song_list'].split('\n');	
+	
+	var song_arr = songlist_json.parameters['song_list'].split('\n');
+	var song_info = song_arr[songlist_json.parameters['now']].split('\t');
+	
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'recent_song'){
+			song_json[i].parameters['recent_singer'] = song_info[0];
+			song_json[i].parameters['recent_song'] = song_info[1];
+		}
+	}
+	
+	user_arr[userId] = JSON.stringify(song_json);	
+	console.log('------------user context---------------');
+	console.log(user_arr[userId]);
 	
 	cb(song_arr[songlist_json.parameters['now']]);
 		
