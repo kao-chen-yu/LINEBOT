@@ -441,7 +441,9 @@ function setSearchSong(search_list,user,cb){
 		console.log(user_json[i].name);
 		if(user_json[i].name == 'recent_song'){
 			user_json[i].parameters['recent_singer'] = singer;
-			user_json[i].parameters['recent_song'] = song_arr[num];
+			user_json[i].parameters['recent_singer.original'] = singer;
+			user_json[i].parameters['recent_song'] = song_arr[num-1];
+			user_json[i].parameters['recent_song.original'] = song_arr[num-1];
 		}
 	}
 	
@@ -449,7 +451,7 @@ function setSearchSong(search_list,user,cb){
 	console.log('------------user context---------------');
 	console.log(user_arr[userId]);
 	
-	cb('開始撥放' + singer + '\t' + song_arr[num]);
+	cb('開始撥放' + singer + '\t' + song_arr[num-1]);
 }
 function clearContext(user,param){
 	console.log('clear context');
