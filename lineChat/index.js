@@ -83,7 +83,7 @@ bot.on('message', function(event) {
 				http.get(url,function(response){
 					response.on("data", function(data) {
 						console.log(data.toString());
-						SearchResult(JSON.stringify(data.toString()),function(result){
+						SearchResult(JSON.parse(data.toString()),function(result){
 							console.log(result);
 							
 						});
