@@ -86,6 +86,13 @@ bot.on('message', function(event) {
 						SearchResult(JSON.parse(data.toString()),function(result){
 							console.log(result);
 							
+							event.reply(result).then(function(data) {
+
+							}).catch(function(error) {
+							// error 
+								console.log('error create list');
+								//console.log(error);
+							});
 						});
 					});
 				});
@@ -367,7 +374,7 @@ function SearchResult(search_result,cb){
 	var songs = search_result.song;
 	var song_list='';
 	for(var i=0;i<songs.length;i++){
-		song_list = song_list + i + '.' + songs[i].song_name;
+		song_list = song_list + (i+1) + '.' + songs[i].song_name;
 		
 		if(i<songs.length)
 			song_list = song_list + '\n';
