@@ -398,6 +398,8 @@ function SearchResult(search_result,singer,user,cb){
 	var songs = search_result.song;
 	var song_list='';
 	var list = '';
+	
+	if(songs){
 	for(var i=0;i<songs.length;i++){
 		song_list = song_list + (i+1) + ' ' + songs[i].song_name + '\n';
 		list = list +songs[i].song_name + '\n'
@@ -421,7 +423,9 @@ function SearchResult(search_result,singer,user,cb){
 	song_list = song_list + '你要聽哪一首'
 	
 	cb(song_list);
-	
+	}else{
+	cb('搜尋不到結果，請重新搜尋');
+	}
 }
 
 function setSearchSong(search_list,user,cb){
@@ -520,7 +524,7 @@ function addPlayList(user,recent_song,cb){
 		if(fs.existsSync(f_path) == false){
 			if(recent_song['playlist_singername.original'] == '暫時'){
 				fs.writeFileSync(f_path,song_info);
-			cb('加入至暫時歌單');
+			cb( song_info + '加入至暫時歌單');
 			}
 			else{
 			console.log('----------error playlist not exist----------');
@@ -530,7 +534,7 @@ function addPlayList(user,recent_song,cb){
 		}else{
 			console.log('----------playlist exist and add song -----------');
 			fs.appendFileSync(f_path,song_info);
-			cb (song_info + ' 以加入至' + recent_song['playlist_singername.original'] +'歌單 ');
+			cb (song_info + '加入至' + recent_song['playlist_singername.original'] +'歌單 ');
 		}
 	}else{
 		cb(' 無加入歌手歌曲資訊 ');
