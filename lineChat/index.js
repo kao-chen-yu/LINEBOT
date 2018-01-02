@@ -19,7 +19,7 @@ var check = false;
 var test ='test sent';
 var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}}]};
 var user_arr = [];
-
+var search_url = 'http://search.mymusic.net.tw/mobile/index?select4=ftsong&pageNo=1&pageSize=10&out_type=json&textfield2=';
 console.log('------start-------');
 setInterval(function() {
 	console.log('waiting');
@@ -79,34 +79,13 @@ bot.on('message', function(event) {
 					singer=param['singer.original'];
 					console.log('find_singer - custom' +singer);
 				}
-				
-				var path='./song_list/'+singer+'.txt';
-					fs.readFile(path, function (err, data) {
-						if (err){ 
-							console.log("---------singer's song information error ------");
-							speech = '沒有此歌手所唱歌曲資料';
-						}
-						var str=data.toString();
-						if(str.includes(param['song.original'])==true){
-						}else
-						{
-							speech = '歌手沒有唱此首歌';	
-						}
-							//line bot replay
-							event.reply(speech).then(function(data) {
-							// success 
-							Step(
-							clearContext(event,param)
-							);
-							//----------replay end --------------------
-							}).catch(function(error) {
-							// error 
-							console.log('-------replay listen_song error-----');
-							//console.log(error);
-							});			
-					});			
-			
-			}
+				var url = search_url + encodeURIComponent(singer + '+' + param['song.original'])
+				http.get(url,function(response){
+					response.on("data", function(data) {
+						console.log(data.toString());
+		
+					});
+				});
 			//---------------------playlist controll -----------------------------
 			else if (response.result.metadata.intentName== 'playlist_controll'){
 				console.log('------- playlist_controll------------');
