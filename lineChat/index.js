@@ -417,7 +417,7 @@ function SearchResult(search_result,singer,user,cb){
 	}
 	
 	user_arr[userId] = JSON.stringify(user_json);
-	console.log('------------user context---------------');
+	console.log('------------user context-----------------');
 	console.log(user_arr[userId]);
 	
 	song_list = song_list + '你要聽哪一首'
