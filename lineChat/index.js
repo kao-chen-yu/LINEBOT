@@ -399,7 +399,7 @@ function SearchResult(search_result,singer,user,cb){
 	var song_list='';
 	var list = '';
 	
-	if(search_result.total == '0'){
+	if(search_result.total != '0'){
 	for(var i=0;i<songs.length;i++){
 		song_list = song_list + (i+1) + ' ' + songs[i].song_name + '\n';
 		list = list +songs[i].song_name + '\n'
