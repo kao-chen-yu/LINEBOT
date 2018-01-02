@@ -87,7 +87,7 @@ bot.on('message', function(event) {
 					});
 				});
 			//---------------------playlist controll -----------------------------
-			else if (response.result.metadata.intentName== 'playlist_controll'){
+			}else if (response.result.metadata.intentName== 'playlist_controll'){
 				console.log('------- playlist_controll------------');
 				for(var i=0;i<response.result.contexts.length;i++){
 					if(response.result.contexts[i].name == 'recent_song')
