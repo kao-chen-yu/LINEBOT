@@ -389,7 +389,7 @@ function SearchResult(search_result,singer,user,cb){
 	var user_json = JSON.parse(user_arr[userId]);
 	
 	for(var i=0;i<user_json.length;i++){
-	
+		console.log(user_json[i].name);
 		if(user_json[i].name == 'search_list'){
 			user_json[i].parameters['list'] = list;
 			user_json[i].parameters['singer'] = singer;
