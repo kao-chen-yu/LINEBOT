@@ -17,7 +17,8 @@ var http = require("http");
 var singer='test';
 var check = false;
 var test ='test sent';
-var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}}]};
+var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}},
+				{"name" : "search_list", "parameters" :{"list" : "","singer":""}}]};
 var user_arr = [];
 var search_url = 'http://search.mymusic.net.tw/mobile/index?select4=ftsong&pageNo=1&pageSize=10&out_type=json&textfield2=';
 console.log('------start-------');
@@ -83,7 +84,7 @@ bot.on('message', function(event) {
 				http.get(url,function(response){
 					response.on("data", function(data) {
 						console.log(data.toString());
-						SearchResult(JSON.parse(data.toString()),function(result){
+						SearchResult(JSON.parse(data.toString()),singer,event,function(result){
 							console.log(result);
 							
 							event.reply(result).then(function(data) {
@@ -369,14 +370,35 @@ function putContext(user,param){
 	console.log('------------user context--------------');
 	console.log(user_arr[userId]);
 }
-function SearchResult(search_result,cb){
+function SearchResult(search_result,singer,user,cb){
+	
+	if(user.source.type == 'group')
+		var userId = user.source.userId + user.source.groupId;
+	else
+		var userId = user.source.userId;
 	
 	var songs = search_result.song;
 	var song_list='';
+	var list = '';
 	for(var i=0;i<songs.length;i++){
 		song_list = song_list + (i+1) + ' ' + songs[i].song_name + '\n';
+		list = list + singer + '\t' +songs[i].song_name + '\n'
 		
 	}
+	
+	var user_json = JSON.parse(user_arr[userId]);
+	
+	for(var i=0;i<user_json.length;i++){
+	
+		if(user_json[i].name == 'search_list'){
+			user_json[i].parameters['list'] = list;
+			user_json[i].parameters['singer'] = singer;
+		}
+	}
+	
+	user_arr[userId] = JSON.stringify(contexts.contexts);
+	console.log('------------user context--------------');
+	console.log(user_arr[userId]);
 	
 	song_list = song_list + '你要聽哪一首'
 	
