@@ -374,7 +374,7 @@ function SearchResult(search_result,cb){
 	var songs = search_result.song;
 	var song_list='';
 	for(var i=0;i<songs.length;i++){
-		song_list = song_list + (i+1) + ' ' + songs[i].song_name;
+		song_list = song_list + (i+1) + ' ' + songs[i].song_name + '\n';
 		
 	}
 	
