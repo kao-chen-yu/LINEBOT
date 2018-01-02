@@ -372,8 +372,7 @@ function putContext(user,param){
 }
 function SearchResult(search_result,singer,user,cb){
 	
-	console.log('------user------');
-	console.log(user);
+
 	if(user.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
 	else
@@ -398,7 +397,7 @@ function SearchResult(search_result,singer,user,cb){
 		}
 	}
 	
-	user_arr[userId] = JSON.stringify(contexts.contexts);
+	user_arr[userId] = JSON.stringify(user_json);
 	console.log('------------user context---------------');
 	console.log(user_arr[userId]);
 	
