@@ -445,6 +445,10 @@ function setSearchSong(search_list,user,cb){
 		}
 	}
 	
+	user_arr[userId] = JSON.stringify(user_json);
+	console.log('------------user context---------------');
+	console.log(user_arr[userId]);
+	
 	cb('開始撥放' + singer + '\t' + song_arr[num]);
 }
 function clearContext(user,param){
