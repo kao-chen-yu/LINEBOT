@@ -465,6 +465,13 @@ function setSearchSong(search_list,user,cb){
 			user_json[i].parameters['recent_song'] = song_arr[num-1];
 			user_json[i].parameters['recent_song.original'] = song_arr[num-1];
 		}
+		else if(user_json[i].name == 'player'){
+			user_json[i].parameters['status'] = 'on';
+		}else if (user_json[i].name == 'play_list'){
+			user_json[i].parameters['song_list'] = singer + '\t' + song_arr[num-1];
+			user_json[i].parameters['song_list_number'] = '1';
+			user_json[i].parameters['now'] = 0;
+		}
 	}
 	
 	user_arr[userId] = JSON.stringify(user_json);
@@ -696,6 +703,7 @@ function getSongnow(user,cb){
 			var songlist_json = song_json[i];
 	}
 	
+	
 	var song_arr = songlist_json.parameters['song_list'].split('\n');
 	var song_info = song_arr[songlist_json.parameters['now']].split('\t');
 	
@@ -766,7 +774,7 @@ function previousSong(user,cb){
 
 function changepause(user,cb){
 	
-	console.log('---------pause------------');
+	console.log('---------change pause------------');
 	if(user.source.type == 'group')
 		var userId = user.source.userId + user.source.groupId;
 	else
