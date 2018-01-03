@@ -222,7 +222,7 @@ bot.on('message', function(event) {
 				if (recent_song['play_action.original'] == '播放'){
 					checkpause(user_info, function(pause){
 						console.log(pause);
-						if(pause == 'true'){
+						if(pause == 'pause'){
 							
 							getSongnow(user_info,function(result){
 							console.log(result);
@@ -239,7 +239,7 @@ bot.on('message', function(event) {
 							changepause(user_info,function(result){
 							});
 						
-						}else{
+						}else if (pause == 'off'){
 							setPlayList(user_info,recent_song,function(result){
 								console.log('callback player list');
 								console.log(result);
@@ -268,6 +268,19 @@ bot.on('message', function(event) {
 									});
 								}
 							});
+						}else{
+									getSongnow(user_info,function(result_song){
+										console.log('-----------------get song speech---------------');
+						
+										event.reply('開始撥放' + result_song ).then(function(data) {
+
+										}).catch(function(error) {
+											// error 
+											console.log('error play replay');
+											//console.log(error);
+										});
+						
+									});
 						}
 					});
 					
@@ -805,9 +818,9 @@ function checkpause(user,cb){
 	var song_json = JSON.parse(user_arr[userId]);
 	
 	for(var i=0;i<song_json.length;i++){
-		if(song_json[i].name == 'play_list'){
+		if(song_json[i].name == 'player'){
 			var songlist_json = song_json[i];			
-				cb(songlist_json.parameters['pause']);
+				cb(songlist_json.parameters['status']);
 			
 	}}
 	}
