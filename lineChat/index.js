@@ -811,7 +811,7 @@ function checkpause(user,cb){
 			
 	}}
 	}
-	cb('false');
+	
 }
 const app = express();
 const linebotParser = bot.parser();
