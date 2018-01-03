@@ -398,16 +398,19 @@ function SearchResult(search_result,singer,user,cb){
 	var songs = search_result.song;
 	var song_list='';
 	var list = '';
-	
+	var user_json;
 	if(search_result.total != '0'){
 	for(var i=0;i<songs.length;i++){
 		song_list = song_list + (i+1) + ' ' + songs[i].song_name + '\n';
 		list = list +songs[i].song_name + '\n'
 		
 	}
-	
-	var user_json = JSON.parse(user_arr[userId]);
-	
+	if(!user_arr[userId]){
+		user_arr[userId] = contexts.contexts;
+		user_json = JSON.parse(user_arr[userId]);
+	}else{
+		user_json = JSON.parse(user_arr[userId]);
+	}
 	for(var i=0;i<user_json.length;i++){
 		console.log(user_json[i].name);
 		if(user_json[i].name == 'search_list'){
