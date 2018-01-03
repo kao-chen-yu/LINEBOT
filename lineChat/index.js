@@ -18,7 +18,7 @@ var singer='test';
 var check = false;
 var test ='test sent';
 var contexts = { "contexts" :[{"name": "find_singer-followup","parameters": {'singer': "",'singer.original': ""}},{"name": "recent_song","parameters": {'recent_singer': "",'recent_singer.original': ""}},{"name": "play_list","parameters": {'song_list': "",'now': "",'pause' :"false"}},
-				{"name" : "search_list", "parameters" :{"list" : "","singer":""}}]};
+				{"name" : "search_list", "parameters" :{"list" : "","singer":""}},{"name" : "player", "parameters" : {"status" : "off" }}]};
 var user_arr = [];
 var search_url = 'http://search.mymusic.net.tw/mobile/index?select4=ftsong&pageNo=1&pageSize=10&out_type=json&textfield2=';
 console.log('------start-------');
@@ -656,6 +656,7 @@ function setPlayList(user,recent_song,cb){
 	contexts.contexts[2].parameters['song_list_number'] = data.toString().split('\n').length-1;
 	contexts.contexts[2].parameters['now'] = 0;
 	contexts.contexts[2].parameters['pause'] = 'false';
+	contexts.contexts[4].parameters['status'] = 'on';
 	user_arr[userId] = JSON.stringify(contexts.contexts);
 	cb('success');
 	}
@@ -766,8 +767,21 @@ function changepause(user,cb){
 					songlist_json.parameters['pause'] = "true";
 			song_json[i] = songlist_json;
 	}}
+	
+	for(var i=0;i<song_json.length;i++){
+		if(song_json[i].name == 'player'){
+			var songlist_json = song_json[i];
+				if(songlist_json.parameters['status'] == 'pause')
+					songlist_json.parameters['pause'] = "on";
+				else if (songlist_json.parameters['status'] == 'on')
+					songlist_json.parameters['pause'] = "pause";
+			song_json[i] = songlist_json;
+	}}
 
 	user_arr[userId] = JSON.stringify(song_json);
+	
+	console.log('------------user context---------------');
+	console.log(user_arr[userId]);
 	
 	cb('pause success');
 
