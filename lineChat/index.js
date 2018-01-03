@@ -772,9 +772,9 @@ function changepause(user,cb){
 		if(song_json[i].name == 'player'){
 			var songlist_json = song_json[i];
 				if(songlist_json.parameters['status'] == 'pause')
-					songlist_json.parameters['pause'] = "on";
+					songlist_json.parameters['status'] = "on";
 				else if (songlist_json.parameters['status'] == 'on')
-					songlist_json.parameters['pause'] = "pause";
+					songlist_json.parameters['status'] = "pause";
 			song_json[i] = songlist_json;
 	}}
 
