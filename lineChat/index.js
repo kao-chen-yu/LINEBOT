@@ -406,7 +406,7 @@ function SearchResult(search_result,singer,user,cb){
 		
 	}
 	if(!user_arr[userId]){
-		user_arr[userId] = contexts.contexts;
+		user_arr[userId] = JSON.stringify(contexts.contexts);
 		user_json = JSON.parse(user_arr[userId]);
 	}else{
 		user_json = JSON.parse(user_arr[userId]);
