@@ -838,7 +838,23 @@ const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
 
-
+app.get('/:singer?',function(req,res){
+	
+	var f_path='./song_id/'+req.params.singer+'.txt';
+	console.log(f_path);
+	fs.readFile(f_path, function (err, data) {
+    if (err) {
+		console.log('setplaylist error');
+		res.send('no information');
+	}
+    
+	else{
+	console.log(data.toString());
+	res.send(data.toString());	
+	}
+});
+	
+});
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen(process.env.PORT || 8080, function() {
