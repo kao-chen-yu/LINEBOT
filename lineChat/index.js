@@ -856,6 +856,12 @@ app.get('/search/:singer?',function(req,res){
 	
 });
 
+app.get('/search/:singer?',function(req,res){
+	
+	res.send('hello world');
+	
+});
+
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen(process.env.PORT || 8080, function() {
   var port = server.address().port;
