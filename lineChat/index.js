@@ -838,7 +838,7 @@ const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
 
-app.get('/:singer?',function(req,res){
+app.get('/search/:singer?',function(req,res){
 	
 	var f_path='./song_id/'+req.params.singer+'.txt';
 	console.log(f_path);
