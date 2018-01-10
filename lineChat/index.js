@@ -892,7 +892,7 @@ app.get('/deleteplaylist/:playlist?',function(req,res){
 app.get('/addsong/:playlist/:songinfo',function(req,res){
 	
 	var playlist_name = req.params.playlist;
-	var song_info = req.params.songinfo;
+	var song_info = req.params.songinfo + '\n';
 	var f_path = './playlist/aligenie/' + playlist_name + '.txt';
 	
 	if(fs.existsSync(f_path) == false){				
