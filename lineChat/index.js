@@ -859,7 +859,7 @@ app.get('/search/:singer?',function(req,res){
 app.get('/createplaylist/:playlist?',function(req,res){
 	
 	var playlist_name = req.params.playlist;
-	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	var f_path = './playlist/aligenie/' + playlist_name + '.txt';
 	
 	if(fs.existsSync(f_path) == false){
 		console.log('----------create playlist and add song----------');
@@ -875,7 +875,7 @@ app.get('/createplaylist/:playlist?',function(req,res){
 app.get('/deleteplaylist/:playlist?',function(req,res){
 	
 	var playlist_name = req.params.playlist;
-	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	var f_path = './playlist/aligenie/' + playlist_name + '.txt';
 	
 	if(fs.existsSync(f_path) == false){
 		console.log('----------no file ----------');
@@ -893,7 +893,7 @@ app.get('/addsong/:playlist/:songinfo',function(req,res){
 	
 	var playlist_name = req.params.playlist;
 	var song_info = req.params.songinfo;
-	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	var f_path = './playlist/aligenie/' + playlist_name + '.txt';
 	
 	if(fs.existsSync(f_path) == false){				
 		res.send(playlist_name + ' 歌單不存在 ');
@@ -906,7 +906,7 @@ app.get('/addsong/:playlist/:songinfo',function(req,res){
 app.get('/listPlaylist/:playlist?',function(req,res){
 	
 	var playlist_name = req.params.playlist;
-	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	var f_path = './playlist/aligenie/' + playlist_name + '.txt';
 	
 	fs.readFile(f_path, function (err, data) {
     if (err) {
@@ -922,7 +922,7 @@ app.get('/listPlaylist/:playlist?',function(req,res){
 app.get('/listPlaylistname/',function(req,res){
 	
 	var playlist_name = req.params.playlist;
-	var f_path = './playlist/aliogenie/';
+	var f_path = './playlist/aligenie/';
 	
 	fs.readdir(f_path, function(err,data){
 		if(err){
