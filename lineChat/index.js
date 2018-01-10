@@ -935,6 +935,23 @@ app.get('/listPlaylistname/',function(req,res){
 	});	
 });
 
+app.get('/setplaylist/:playlist', function(req,res){
+	
+	var playlist_name = req.params.playlist;
+	var f_path = './playlist/aligenie/' + playlist_name + '.txt';
+		
+	fs.readFile(f_path, function (err, data) {
+    if (err) {
+		console.log('setplaylist error');
+		res.send('無此歌單資料');
+	}
+    //console.log(data.toString());	
+	else{
+		res.send(data.toString());
+	}
+});
+	
+});
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen(process.env.PORT || 8080, function() {
