@@ -856,11 +856,85 @@ app.get('/search/:singer?',function(req,res){
 	
 });
 
-app.get('/search/:singer?',function(req,res){
+app.get('/createplaylist/:playlist?',function(req,res){
 	
-	res.send('hello world');
+	var playlist_name = req.params.playlist;
+	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	
+	if(fs.existsSync(f_path) == false){
+		console.log('----------create playlist and add song----------');
+		console.log(f_path);
+		fs.writeFileSync(f_path,'');
+		res.send(playlist_name + ' 歌單建立成功 ');
+	}else{
+		console.log('----------playlist exist and add song -----------');
+		res.send( playlist_name + ' 歌單已存在 ');
+	}	
+});
+
+app.get('/deleteplaylist/:playlist?',function(req,res){
+	
+	var playlist_name = req.params.playlist;
+	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	
+	if(fs.existsSync(f_path) == false){
+		console.log('----------no file ----------');
+		console.log(f_path);
+		res.send('無此歌單');
+	}else{
+		console.log('----------playlist exist and delete -----------');
+		fs.unlinkSync(f_path);
+		res.send(playlist_name + '刪除成功');
+	}
 	
 });
+
+app.get('/addsong/:playlist/:songinfo',function(req,res){
+	
+	var playlist_name = req.params.playlist;
+	var song_info = req.params.songinfo;
+	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	
+	if(fs.existsSync(f_path) == false){				
+		res.send(playlist_name + ' 歌單不存在 ');
+	}else{
+		fs.appendFileSync(f_path,song_info);
+		res.send( song_info + '加入至歌單');
+	}	
+});
+
+app.get('/listPlaylist/:playlist?',function(req,res){
+	
+	var playlist_name = req.params.playlist;
+	var f_path = './playlist/aliogenie/' + playlist_name + '.txt';
+	
+	fs.readFile(f_path, function (err, data) {
+    if (err) {
+		console.log('listPlaylist error');
+		res.send('查無此歌單');
+	}
+	else{
+    console.log(data.toString());
+	res.send(data.toString());}
+	});	
+});
+
+app.get('/listPlaylistname/',function(req,res){
+	
+	var playlist_name = req.params.playlist;
+	var f_path = './playlist/aliogenie/';
+	
+	fs.readdir(f_path, function(err,data){
+		if(err){
+			console.log('read dictionary error');
+			res.send(' 沒有此user 歌單資料 ');
+		}
+		else{
+		res.send(data);
+		}
+	});	
+});
+
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen(process.env.PORT || 8080, function() {
